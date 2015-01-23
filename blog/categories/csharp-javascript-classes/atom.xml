@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Csharp,javascript,classes | Coding Frenzy]]></title>
+  <link href="http://shiranginige.github.io/blog/categories/csharp-javascript-classes/atom.xml" rel="self"/>
+  <link href="http://shiranginige.github.io/"/>
+  <updated>2015-01-24T08:11:46+11:00</updated>
+  <id>http://shiranginige.github.io/</id>
+  <author>
+    <name><![CDATA[Shiran Ginige]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[C# to Javascript : Classes]]></title>
+    <link href="http://shiranginige.github.io/blog/2015/01/21/csharp-to-javascript-classes/"/>
+    <updated>2015-01-21T08:22:48+11:00</updated>
+    <id>http://shiranginige.github.io/blog/2015/01/21/csharp-to-javascript-classes</id>
+    <content type="html"><![CDATA[<h3>Show me the classes or I won&#8217;t do it ! </h3>
+
+
+<p>One of the first questions that any C# developer would come across is, where are the &ldquo;Classes&rdquo;. Let&rsquo;s take a look at a typical
+class implementation in C# and see how we achieve conceptually the same thing with JavaScript.</p>
+
+<p> A simple Class in C#</p>
+
+<p> <div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">class</span> <span class="nc">Cart</span>
+ <span class="p">{</span>
+   <span class="k">private</span> <span class="n">IList</span><span class="p">&lt;</span><span class="n">OrderLine</span><span class="p">&gt;</span> <span class="n">_orderLineItems</span><span class="p">;&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span>   <span class="k">public</span> <span class="n">Cart</span><span class="p">()</span>
+   <span class="p">{</span>
+     <span class="n">_cartItems</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">OrderLine</span><span class="p">&gt;();</span>
+   <span class="p">}&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span>   <span class="k">public</span> <span class="k">void</span> <span class="n">AddItem</span><span class="p">(</span><span class="n">OrderLineItem</span> <span class="n">orderLineItem</span><span class="p">)</span>
+   <span class="p">{</span>
+    <span class="n">_cartItems</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">orderLineItem</span><span class="p">);</span>
+   <span class="p">}</span>
+ <span class="p">}&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span><span class="c1">//usage&lt;/p&gt;</span>
+
+<span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span> <span class="kt">var</span> <span class="n">cart</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Cart</span><span class="p">();</span>
+ <span class="n">cart</span><span class="p">.</span><span class="n">AddItem</span><span class="p">(</span><span class="k">new</span> <span class="n">OrderLineItem</span><span class="p">(){</span><span class="n">ProductCode</span><span class="p">=&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">QWER1234</span><span class="p">&amp;</span><span class="n">rdquo</span><span class="p">;</span> <span class="p">,</span> <span class="n">Quantity</span><span class="p">=</span><span class="m">3</span><span class="p">});&lt;/</span><span class="n">p</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="n">p</span><span class="p">&gt;</span></code></pre></div></p>
+
+<p>Class in Javascript</p>
+
+<p><div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="o">&lt;</span><span class="err">/p&gt;</span>
+
+<span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="kd">function</span> <span class="nx">Cart</span><span class="p">()</span> <span class="p">{</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+
+<span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span><span class="kd">var</span> <span class="nx">cartItems</span> <span class="o">=</span> <span class="p">[];</span>
+
+<span class="k">this</span><span class="p">.</span><span class="nx">addItem</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">orderLineItem</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">cartItems</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">orderLineItem</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">this</span><span class="p">.</span><span class="nx">Print</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span> <span class="nx">cartItems</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Quantity of : &quot;</span> <span class="o">+</span> <span class="nx">cartItems</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">Quantity</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="o">&lt;</span><span class="err">/code&gt;&lt;/pre&gt;</span>
+
+<span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+
+<span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="c1">//usage&lt;/p&gt;</span>
+
+<span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="kd">var</span> <span class="nx">cart</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Cart</span><span class="p">();</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+
+<span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">cart</span><span class="p">.</span><span class="nx">addItem</span><span class="p">({</span><span class="o">&amp;</span><span class="nx">ldquo</span><span class="p">;</span><span class="nx">ProductCode</span><span class="o">&amp;</span><span class="nx">rdquo</span><span class="p">;</span><span class="o">:</span> <span class="o">&amp;</span><span class="nx">ldquo</span><span class="p">;</span><span class="nx">Qwer1234</span><span class="o">&amp;</span><span class="nx">rdquo</span><span class="p">;,</span> <span class="o">&amp;</span><span class="nx">ldquo</span><span class="p">;</span><span class="nx">Quantity</span><span class="o">&amp;</span><span class="nx">rdquo</span><span class="p">;</span><span class="o">:</span> <span class="o">&amp;</span><span class="nx">ldquo</span><span class="p">;</span><span class="mi">3</span><span class="o">&amp;</span><span class="nx">rdquo</span><span class="p">;});</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+
+<span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">cart</span><span class="p">.</span><span class="nx">Print</span><span class="p">();</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+
+<span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span></code></pre></div></p>
+
+<p>As you can see, there is no keyword called  &lsquo;class&rsquo; in JavaScript, but use functions to achieve the structure we want.</p>
+
+<p>This is called the constructor pattern. Unlike a typical JavaScript function UpperCase convention is followed when naming
+the constructor function. The function should &lsquo;always&rsquo; be called with the new keyword (mind you it is possible to call the
+constructor function without the new keyword and it would lead to unprecedented results.</p>
+
+<p>David Crawford explains what happens when you don&rsquo;t include new keyword it in his book JavaScript : The good parts (page 49)</p>
+
+<p>If you forget to include the new prefix when calling a constructor function,
+then this will not be bound to the new object.Sadly, this will be bound to the global object,
+so instead of augmenting your new object, you will be clobbering global variables. That is really bad. There is no compile warning, and there is no runtime warning. (page 49)</p>
+
+<ol>
+<li>Constructor function should follow the UpperCase convention</li>
+<li>Should always use the new keyword to invoke a function</li>
+</ol>
+
+]]></content>
+  </entry>
+  
+</feed>

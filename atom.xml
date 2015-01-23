@@ -4,7 +4,7 @@
   <title><![CDATA[Coding Frenzy]]></title>
   <link href="http://shiranginige.github.io/atom.xml" rel="self"/>
   <link href="http://shiranginige.github.io/"/>
-  <updated>2015-01-24T08:05:24+11:00</updated>
+  <updated>2015-01-24T08:11:46+11:00</updated>
   <id>http://shiranginige.github.io/</id>
   <author>
     <name><![CDATA[Shiran Ginige]]></name>
@@ -35,8 +35,7 @@
 <h3>Objects are more than that</h3>
 
 
-<p>In JavaScript, pretty much everything is an object. All primitive types ( String, Boolean, Number,etc) are objects
-( and the C# guy goes like , what?  - but don&rsquo;t over think it. Remember the mantra : JavaScript is a simple language and you&rsquo;ll be fine )</p>
+<p>In JavaScript, pretty much everything is an object. All primitive types ( String, Boolean, Number,etc) are objects</p>
 
 <p>You can even define a full-on object with methods , on the fly ( to hell with classes , eh?)</p>
 
@@ -50,6 +49,8 @@
 
 <span class="nx">cart</span><span class="p">.</span><span class="nx">addItem</span><span class="p">({</span><span class="nx">Product</span><span class="o">:</span><span class="s1">&#39;QWER&#39;</span><span class="p">,</span><span class="nx">Quantity</span><span class="o">:</span><span class="mi">12</span><span class="p">});</span></code></pre></div>
 
+
+<p>&ndash;TODO&ndash;</p>
 ]]></content>
   </entry>
   
@@ -136,7 +137,7 @@ so instead of augmenting your new object, you will be clobbering global variable
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Csharp Developer Learning Javascript]]></title>
+    <title type="html"><![CDATA[C# Developer Learning JavaScript]]></title>
     <link href="http://shiranginige.github.io/blog/2015/01/15/csharp-developer-learning-javascript/"/>
     <updated>2015-01-15T07:45:52+11:00</updated>
     <id>http://shiranginige.github.io/blog/2015/01/15/csharp-developer-learning-javascript</id>
