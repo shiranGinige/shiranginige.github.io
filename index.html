@@ -9,7 +9,7 @@
   <meta name="author" content="Shiran Ginige">
 
   
-  <meta name="description" content="The best thing about Javascript is it&rsquo;s inhrantly easy way to deal with objects. var order = {Product:&quot;XYZ&quot; , Quantity=3}; Done. Here &hellip;">
+  <meta name="description" content="The best thing about Javascript is it&rsquo;s inherently easy way to deal with objects. var order = {productCode:&quot;XYZ&quot; , quantity=3}; Done &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -71,7 +71,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2015/01/23/csharp-to-jacascript-objects/">Csharp to Jacascript Objects</a></h1>
+      <h1 class="entry-title"><a href="/blog/2015/01/23/csharp-to-javascript-objects/">C# to Javascript : Objects</a></h1>
     
     
       <p class="meta">
@@ -87,12 +87,38 @@
   </header>
 
 
-  <div class="entry-content"><p>The best thing about Javascript is it&rsquo;s inhrantly easy way to deal with objects.</p>
+  <div class="entry-content"><p>The best thing about Javascript is it&rsquo;s inherently easy way to deal with objects.</p>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">order</span> <span class="o">=</span> <span class="p">{</span><span class="nx">Product</span><span class="o">:</span><span class="s2">&quot;XYZ&quot;</span> <span class="p">,</span> <span class="nx">Quantity</span><span class="o">=</span><span class="mi">3</span><span class="p">};</span></code></pre></div>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">order</span> <span class="o">=</span> <span class="p">{</span><span class="nx">productCode</span><span class="o">:</span><span class="s2">&quot;XYZ&quot;</span> <span class="p">,</span> <span class="nx">quantity</span><span class="o">=</span><span class="mi">3</span><span class="p">};</span></code></pre></div>
 
 
 <p>Done. Here you have your order object! No need to define classes or nothing.</p>
+
+<p>How do you access the properties? There are two ways&hellip;</p>
+
+<pre><code>1. Dot notation , i.e =&gt; order.productCode;
+
+2. Subscript notation, i.e =&gt; order["productCode"];
+</code></pre>
+
+<h3>Objects are more than that</h3>
+
+
+<p>In JavaScript, pretty much everything is an object. All primitive types ( String, Boolean, Number,etc) are objects
+( and the C# guy goes like , what?  - but don&rsquo;t over think it. Remember the mantra : JavaScript is a simple language and you&rsquo;ll be fine )</p>
+
+<p>You can even define a full-on object with methods , on the fly ( to hell with classes , eh?)</p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">cart</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">items</span><span class="o">:</span> <span class="p">[],</span>
+    <span class="nx">addItem</span> <span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">item</span><span class="p">){</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">items</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">item</span><span class="p">);</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">items</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="nx">cart</span><span class="p">.</span><span class="nx">addItem</span><span class="p">({</span><span class="nx">Product</span><span class="o">:</span><span class="s1">&#39;QWER&#39;</span><span class="p">,</span><span class="nx">Quantity</span><span class="o">:</span><span class="mi">12</span><span class="p">});</span></code></pre></div>
+
 </div>
   
   
@@ -105,7 +131,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2015/01/21/csharp-to-javascript-classes/">Csharp-to-javascript:classes</a></h1>
+      <h1 class="entry-title"><a href="/blog/2015/01/21/csharp-to-javascript-classes/">C# to Javascript : Classes</a></h1>
     
     
       <p class="meta">
@@ -171,28 +197,24 @@ class implementation in C# and see how we achieve conceptually the same thing wi
 
 <span class="c1">//usage</span>
 
-
 <span class="kd">var</span> <span class="nx">cart</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Cart</span><span class="p">();</span>
 
 <span class="nx">cart</span><span class="p">.</span><span class="nx">addItem</span><span class="p">({</span><span class="s2">&quot;ProductCode&quot;</span><span class="o">:</span> <span class="s2">&quot;Qwer1234&quot;</span><span class="p">,</span> <span class="s2">&quot;Quantity&quot;</span><span class="o">:</span> <span class="s2">&quot;3&quot;</span><span class="p">});</span>
-<span class="nx">cart</span><span class="p">.</span><span class="nx">addItem</span><span class="p">({</span><span class="s2">&quot;ProductCode&quot;</span><span class="o">:</span> <span class="s2">&quot;Rewq1234&quot;</span><span class="p">,</span> <span class="s2">&quot;Quantity&quot;</span><span class="o">:</span> <span class="s2">&quot;2&quot;</span><span class="p">});</span>
 
 <span class="nx">cart</span><span class="p">.</span><span class="nx">Print</span><span class="p">();</span></code></pre></div>
 
 
 <p>As you can see, there is no keyword called  &lsquo;class&rsquo; in JavaScript, but use functions to achieve the structure we want.</p>
 
-<p>This is called the constructor pattern. Unlike a typical JavaScript function UpperCase concention is followed when naming
+<p>This is called the constructor pattern. Unlike a typical JavaScript function UpperCase convention is followed when naming
 the constructor function. The function should &lsquo;always&rsquo; be called with the new keyword (mind you it is possible to call the
 constructor function without the new keyword and it would lead to unprecedented results.</p>
 
 <p>David Crawford explains what happens when you don&rsquo;t include new keyword it in his book JavaScript : The good parts (page 49)</p>
 
-<pre><code>If you forget to include the new prefix when calling a constructor function,
-then this will not be bound to the new object.
-Sadly, this will be bound to the global object,
-so instead of augmenting your new object, you will be clobbering global variables. That is really bad. There is no compile warning, and there is no runtime warning. (page 49)
-</code></pre>
+<p>If you forget to include the new prefix when calling a constructor function,
+then this will not be bound to the new object.Sadly, this will be bound to the global object,
+so instead of augmenting your new object, you will be clobbering global variables. That is really bad. There is no compile warning, and there is no runtime warning. (page 49)</p>
 
 <ol>
 <li>Constructor function should follow the UpperCase convention</li>
@@ -253,11 +275,11 @@ So it is inevitable that you&rsquo;d want to learn it sooner or later.</p>
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/blog/2015/01/23/csharp-to-jacascript-objects/">Csharp to Jacascript Objects</a>
+        <a href="/blog/2015/01/23/csharp-to-javascript-objects/">C# to Javascript : Objects</a>
       </li>
     
       <li class="post">
-        <a href="/blog/2015/01/21/csharp-to-javascript-classes/">Csharp-to-javascript:classes</a>
+        <a href="/blog/2015/01/21/csharp-to-javascript-classes/">C# to Javascript : Classes</a>
       </li>
     
       <li class="post">
