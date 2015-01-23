@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Csharp,javascript,tech | Coding Frenzy]]></title>
+  <link href="http://shiranginige.github.io/blog/categories/csharp-javascript-tech/atom.xml" rel="self"/>
+  <link href="http://shiranginige.github.io/"/>
+  <updated>2015-01-23T22:16:41+11:00</updated>
+  <id>http://shiranginige.github.io/</id>
+  <author>
+    <name><![CDATA[Shiran Ginige]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Csharp Developer Learning Javascript]]></title>
+    <link href="http://shiranginige.github.io/blog/2015/01/15/csharp-developer-learning-javascript/"/>
+    <updated>2015-01-15T07:45:52+11:00</updated>
+    <id>http://shiranginige.github.io/blog/2015/01/15/csharp-developer-learning-javascript</id>
+    <content type="html"><![CDATA[<p>Ok I admit it,  I am one of those devs who was &ldquo;prod to say that I&rsquo;m not good at JavaScript&rdquo;. It was a thing like
+CSS, which as developers you could get away with not knowing much. But things have changed ( for the good ) and
+<a href='http://redmonk.com/sogrady/2015/01/14/language-rankings-1-15/'> as of 2015 JavaScript is the most popular language on the planet</a>.
+So it is inevitable that you&rsquo;d want to learn it sooner or later.</p>
+
+<p>C# to JavaScript blog series are my notes in trying to understand JavaScript from the foundations of C#.</p>
+]]></content>
+  </entry>
+  
+</feed>

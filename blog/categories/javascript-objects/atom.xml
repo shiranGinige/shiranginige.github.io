@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Javascript,objects | Coding Frenzy]]></title>
+  <link href="http://shiranginige.github.io/blog/categories/javascript-objects/atom.xml" rel="self"/>
+  <link href="http://shiranginige.github.io/"/>
+  <updated>2015-01-23T22:16:41+11:00</updated>
+  <id>http://shiranginige.github.io/</id>
+  <author>
+    <name><![CDATA[Shiran Ginige]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Csharp to Jacascript Objects]]></title>
+    <link href="http://shiranginige.github.io/blog/2015/01/23/csharp-to-jacascript-objects/"/>
+    <updated>2015-01-23T08:36:08+11:00</updated>
+    <id>http://shiranginige.github.io/blog/2015/01/23/csharp-to-jacascript-objects</id>
+    <content type="html"><![CDATA[<p>The best thing about Javascript is it&rsquo;s inhrantly easy way to deal with objects.</p>
+
+<p><div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">order</span> <span class="o">=</span> <span class="p">{</span><span class="nx">Product</span><span class="o">:&amp;</span><span class="nx">ldquo</span><span class="p">;</span><span class="nx">XYZ</span><span class="o">&amp;</span><span class="nx">rdquo</span><span class="p">;</span> <span class="p">,</span> <span class="nx">Quantity</span><span class="o">=</span><span class="mi">3</span><span class="p">};</span></code></pre></div></p>
+
+<p>Done. Here you have your order object! No need to define classes or nothing.</p>
+]]></content>
+  </entry>
+  
+</feed>
