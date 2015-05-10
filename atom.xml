@@ -4,7 +4,7 @@
   <title><![CDATA[Coding Frenzy]]></title>
   <link href="http://shiranginige.github.io/atom.xml" rel="self"/>
   <link href="http://shiranginige.github.io/"/>
-  <updated>2015-01-24T08:11:46+11:00</updated>
+  <updated>2015-05-10T23:00:43+10:00</updated>
   <id>http://shiranginige.github.io/</id>
   <author>
     <name><![CDATA[Shiran Ginige]]></name>
@@ -12,6 +12,85 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Customising VSO Build Template to Execute an Exe]]></title>
+    <link href="http://shiranginige.github.io/blog/2015/05/09/customising-vso-build-template-to-execute-an-exe/"/>
+    <updated>2015-05-09T10:37:41+10:00</updated>
+    <id>http://shiranginige.github.io/blog/2015/05/09/customising-vso-build-template-to-execute-an-exe</id>
+    <content type="html"><![CDATA[<p>I had the chance to work with VSO and Azure WebSites more than usual during the last few days. A bulk of it involved moving
+on prem code base to VSO and setting up CI/CD process with VSO build.</p>
+
+<p>One particular scenario I had to tackle was to carryout database patching using
+<a href='http://dbup.github.io' >DbUp</a> after the build/deployment is complete. The DBUp upgrade happens in the
+form of running an executable generated during the build process.
+The default templates does not have any built-in option to run an arbitrary exe as part of the build process.</p>
+
+<p>While there are other paths to achieve this, I chose to do it through the VSO build itself for the sake of keeping the build/deployment process simple</p>
+
+<h3>Step 1 : Download the default build process template.</h3>
+
+
+<p>Navigate to Team Explorer -> Builds -> Edit Build Definition
+In the Process tab, download the default selected build process template.</p>
+
+<p><img class="left" src="http://shiranginige.github.io/images/customising-vso-build-template-to-execute-an-exe/1.png"></p>
+
+<p>Rename the template and add to the source structure ( e.g in my case I added it under /Builds/CustomTemplates/CustomTemplate1.xaml)
+As you can see build process template is a .xaml file so you can open it in Visual Studio to modify.</p>
+
+<h3>Step 2 : Add a InvokeProcess task to the template</h3>
+
+
+<p>Select the InvokeProcess task and add in the appropriate location in the template ( in this case I have decided to update the
+database as the last step of the process - but it could well be before tests are executed)</p>
+
+<p><img class="left" src="http://shiranginige.github.io/images/customising-vso-build-template-to-execute-an-exe/2.png"></p>
+
+<p>Add a debug message ( WriteBuildMessage) in the task, so that you can see in the log that the process is triggered.</p>
+
+<h3>Step 3 : Add an input argument</h3>
+
+
+<p>At the bottom of the xaml designer view, you could find the &lsquo;Arguments&rsquo; tab. The parameter that you expect to be received form the
+&lsquo;build definition&rsquo; should be specified here.</p>
+
+<p><img class="left" src="http://shiranginige.github.io/images/customising-vso-build-template-to-execute-an-exe/2-1.png"></p>
+
+<p>In this case I&rsquo;m specifying a argument of type &lsquo;BuildParameter&rsquo; which allows me to specify a collection of items ( name of the exe, input argumets )
+But it could also be a simple string or int.</p>
+
+<h3>Step 4 : Specify the process to invoke and the place to look for arguments</h3>
+
+
+<p>Back in the &lsquo;InvokeProcess&rsquo; task, select &lsquo;Properties&rsquo; to specify the process to execute and where to look for input arguments.</p>
+
+<p><img class="left" src="http://shiranginige.github.io/images/customising-vso-build-template-to-execute-an-exe/3.png"></p>
+
+<p>In the above case I&rsquo;m asking the task to look at the Input Arguments specified in step 3.</p>
+
+<p>Since my executable is part of the build process itself, I need to specify the location MSBUILD has created it in ( which is $TF_BUILD_BINARIESDIRECTORY)
+You can find the complete list of build environment variables in <a href='https://msdn.microsoft.com/en-au/library/hh850448.aspx'>this MSDN article</a></p>
+
+<h3>Step 5 : Change the build configuration to use the newly created template</h3>
+
+
+<p>Check in the modified template and in the build definition select New to specify the location for the new template.</p>
+
+<p><img class="left" src="http://shiranginige.github.io/images/customising-vso-build-template-to-execute-an-exe/4.png"></p>
+
+<p>Give the relative path of your template file under &lsquo;path in repo&rsquo;</p>
+
+<h3>Step 6 : Update the build configuration with the required parameters</h3>
+
+
+<p>When the new template is selected in the build definition, you should see the newly specified &lsquo;Arguments&rsquo; in the &lsquo;Misc&rsquo; section
+at the bottom.
+<img class="left" src="http://shiranginige.github.io/images/customising-vso-build-template-to-execute-an-exe/5.png"></p>
+
+<p>Update the exe name and specify the input arguments and queue a new build. Queue a new build and see if</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[C# to Javascript : Objects]]></title>
@@ -133,20 +212,6 @@ so instead of augmenting your new object, you will be clobbering global variable
 <li>Should always use the new keyword to invoke a function</li>
 </ol>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[C# Developer Learning JavaScript]]></title>
-    <link href="http://shiranginige.github.io/blog/2015/01/15/csharp-developer-learning-javascript/"/>
-    <updated>2015-01-15T07:45:52+11:00</updated>
-    <id>http://shiranginige.github.io/blog/2015/01/15/csharp-developer-learning-javascript</id>
-    <content type="html"><![CDATA[<p>Ok I admit it,  I am one of those devs who was &ldquo;prod to say that I&rsquo;m not good at JavaScript&rdquo;. It was a thing like
-CSS, which as developers you could get away with not knowing much. But things have changed ( for the good ) and
-<a href='http://redmonk.com/sogrady/2015/01/14/language-rankings-1-15/'> as of 2015 JavaScript is the most popular language on the planet</a>.
-So it is inevitable that you&rsquo;d want to learn it sooner or later.</p>
-
-<p>C# to JavaScript blog series are my notes in trying to understand JavaScript from the foundations of C#.</p>
 ]]></content>
   </entry>
   

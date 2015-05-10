@@ -1,0 +1,266 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Customising VSO Build Template to Execute an Exe - Coding Frenzy</title>
+  <meta name="author" content="Shiran Ginige">
+
+  
+  <meta name="description" content="I had the chance to work with VSO and Azure WebSites more than usual during the last few days. A bulk of it involved moving
+on prem code base to VSO &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://shiranginige.github.io/blog/2015/05/09/customising-vso-build-template-to-execute-an-exe">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Coding Frenzy" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Coding Frenzy</a></h1>
+  
+    <h2>Talk is cheap. Show me the code - Linus</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:shiranginige.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Customising VSO Build Template to Execute an Exe</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-05-09T10:37:41+10:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>9</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>10:37 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>I had the chance to work with VSO and Azure WebSites more than usual during the last few days. A bulk of it involved moving
+on prem code base to VSO and setting up CI/CD process with VSO build.</p>
+
+<p>One particular scenario I had to tackle was to carryout database patching using
+<a href='http://dbup.github.io' >DbUp</a> after the build/deployment is complete. The DBUp upgrade happens in the
+form of running an executable generated during the build process.
+The default templates does not have any built-in option to run an arbitrary exe as part of the build process.</p>
+
+<p>While there are other paths to achieve this, I chose to do it through the VSO build itself for the sake of keeping the build/deployment process simple</p>
+
+<h3>Step 1 : Download the default build process template.</h3>
+
+
+<p>Navigate to Team Explorer -> Builds -> Edit Build Definition
+In the Process tab, download the default selected build process template.</p>
+
+<p><img class="left" src="/images/customising-vso-build-template-to-execute-an-exe/1.png"></p>
+
+<p>Rename the template and add to the source structure ( e.g in my case I added it under /Builds/CustomTemplates/CustomTemplate1.xaml)
+As you can see build process template is a .xaml file so you can open it in Visual Studio to modify.</p>
+
+<h3>Step 2 : Add a InvokeProcess task to the template</h3>
+
+
+<p>Select the InvokeProcess task and add in the appropriate location in the template ( in this case I have decided to update the
+database as the last step of the process - but it could well be before tests are executed)</p>
+
+<p><img class="left" src="/images/customising-vso-build-template-to-execute-an-exe/2.png"></p>
+
+<p>Add a debug message ( WriteBuildMessage) in the task, so that you can see in the log that the process is triggered.</p>
+
+<h3>Step 3 : Add an input argument</h3>
+
+
+<p>At the bottom of the xaml designer view, you could find the &lsquo;Arguments&rsquo; tab. The parameter that you expect to be received form the
+&lsquo;build definition&rsquo; should be specified here.</p>
+
+<p><img class="left" src="/images/customising-vso-build-template-to-execute-an-exe/2-1.png"></p>
+
+<p>In this case I&rsquo;m specifying a argument of type &lsquo;BuildParameter&rsquo; which allows me to specify a collection of items ( name of the exe, input argumets )
+But it could also be a simple string or int.</p>
+
+<h3>Step 4 : Specify the process to invoke and the place to look for arguments</h3>
+
+
+<p>Back in the &lsquo;InvokeProcess&rsquo; task, select &lsquo;Properties&rsquo; to specify the process to execute and where to look for input arguments.</p>
+
+<p><img class="left" src="/images/customising-vso-build-template-to-execute-an-exe/3.png"></p>
+
+<p>In the above case I&rsquo;m asking the task to look at the Input Arguments specified in step 3.</p>
+
+<p>Since my executable is part of the build process itself, I need to specify the location MSBUILD has created it in ( which is $TF_BUILD_BINARIESDIRECTORY)
+You can find the complete list of build environment variables in <a href='https://msdn.microsoft.com/en-au/library/hh850448.aspx'>this MSDN article</a></p>
+
+<h3>Step 5 : Change the build configuration to use the newly created template</h3>
+
+
+<p>Check in the modified template and in the build definition select New to specify the location for the new template.</p>
+
+<p><img class="left" src="/images/customising-vso-build-template-to-execute-an-exe/4.png"></p>
+
+<p>Give the relative path of your template file under &lsquo;path in repo&rsquo;</p>
+
+<h3>Step 6 : Update the build configuration with the required parameters</h3>
+
+
+<p>When the new template is selected in the build definition, you should see the newly specified &lsquo;Arguments&rsquo; in the &lsquo;Misc&rsquo; section
+at the bottom.
+<img class="left" src="/images/customising-vso-build-template-to-execute-an-exe/5.png"></p>
+
+<p>Update the exe name and specify the input arguments and queue a new build. Queue a new build and see if</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Shiran Ginige</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2015-05-09T10:37:41+10:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>9</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>10:37 am</span></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories//'>,</a>, <a class='category' href='/blog/categories/alm/'>alm</a>, <a class='category' href='/blog/categories/build/'>build</a>, <a class='category' href='/blog/categories/continuous/'>continuous</a>, <a class='category' href='/blog/categories/integration/'>integration</a>, <a class='category' href='/blog/categories/vso/'>vso</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://shiranginige.github.io/blog/2015/05/09/customising-vso-build-template-to-execute-an-exe/" data-via="" data-counturl="http://shiranginige.github.io/blog/2015/05/09/customising-vso-build-template-to-execute-an-exe/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2015/01/23/csharp-to-javascript-objects/" title="Previous Post: C# to javascript : objects">&laquo; C# to javascript : objects</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2015/05/09/customising-vso-build-template-to-execute-an-exe/">Customising VSO Build Template to Execute an Exe</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/01/23/csharp-to-javascript-objects/">C# to Javascript : Objects</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/01/21/csharp-to-javascript-classes/">C# to Javascript : Classes</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2015 - Shiran Ginige -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
