@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Build | Coding Frenzy]]></title>
   <link href="http://shiranginige.github.io/blog/categories/build/atom.xml" rel="self"/>
   <link href="http://shiranginige.github.io/"/>
-  <updated>2015-05-10T23:00:43+10:00</updated>
+  <updated>2015-05-10T23:32:46+10:00</updated>
   <id>http://shiranginige.github.io/</id>
   <author>
     <name><![CDATA[Shiran Ginige]]></name>
@@ -18,7 +18,7 @@
     <link href="http://shiranginige.github.io/blog/2015/05/09/customising-vso-build-template-to-execute-an-exe/"/>
     <updated>2015-05-09T10:37:41+10:00</updated>
     <id>http://shiranginige.github.io/blog/2015/05/09/customising-vso-build-template-to-execute-an-exe</id>
-    <content type="html"><![CDATA[<p>I had the chance to work with VSO and Azure WebSites more than usual during the last few days. A bulk of it involved moving
+    <content type="html"><![CDATA[<p>I had to work with VSO and Azure WebSites more than usual during the last few days. A bulk of it involved moving
 on prem code base to VSO and setting up CI/CD process with VSO build.</p>
 
 <p>One particular scenario I had to tackle was to carryout database patching using
@@ -88,7 +88,8 @@ You can find the complete list of build environment variables in <a href='https:
 at the bottom.
 <img class="left" src="/images/customising-vso-build-template-to-execute-an-exe/5.png"></p>
 
-<p>Update the exe name and specify the input arguments and queue a new build. Queue a new build and see if</p>
+<p>Update the exe name and specify the input arguments and queue a new build. Queue a new build check the log to see if the
+debug message from the InvokeProcess is present. Happy coding!</p>
 ]]></content>
   </entry>
   
