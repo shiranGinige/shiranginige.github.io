@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Build | Coding Frenzy]]></title>
   <link href="http://shiranginige.github.io/blog/categories/build/atom.xml" rel="self"/>
   <link href="http://shiranginige.github.io/"/>
-  <updated>2015-05-10T23:42:33+10:00</updated>
+  <updated>2015-05-10T23:47:03+10:00</updated>
   <id>http://shiranginige.github.io/</id>
   <author>
     <name><![CDATA[Shiran Ginige]]></name>
@@ -25,6 +25,11 @@ on prem code base to VSO and setting up CI/CD process with VSO build.</p>
 <a href='http://dbup.github.io' >DbUp</a> after the build/deployment is complete. The DBUp upgrade happens in the
 form of running an executable generated during the build process.
 The default templates does not have any built-in option to run an arbitrary exe as part of the build process.</p>
+
+<p>The VSO build templates, however, can be customized to do achieve pretty much anything you would expect to happen in a typical
+deployment process - contrary to the common belief that hosted builds are limited to only the default provided options.</p>
+
+<p>Here is a list of items I had do to get the above achieved :</p>
 
 <h3>Step 1 : Download the default build process template.</h3>
 
