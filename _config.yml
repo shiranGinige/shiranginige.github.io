@@ -2,10 +2,12 @@
 #      Main Configs       #
 # ----------------------- #
 
-url: http://shiranGinige.github.io
-title: My Octopress Blog
-subtitle: A blogging framework for hackers.
-author: Your Name
+url: http://shiranginige.github.io
+title: Coding Frenzy
+subtitle: Talk is cheap. Show me the code - Linus
+
+
+author: Shiran Ginige
 simple_search: https://www.google.com/search
 description:
 
