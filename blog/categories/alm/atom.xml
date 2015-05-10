@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Alm | Coding Frenzy]]></title>
   <link href="http://shiranginige.github.io/blog/categories/alm/atom.xml" rel="self"/>
   <link href="http://shiranginige.github.io/"/>
-  <updated>2015-05-10T23:36:02+10:00</updated>
+  <updated>2015-05-10T23:42:33+10:00</updated>
   <id>http://shiranginige.github.io/</id>
   <author>
     <name><![CDATA[Shiran Ginige]]></name>
@@ -25,8 +25,6 @@ on prem code base to VSO and setting up CI/CD process with VSO build.</p>
 <a href='http://dbup.github.io' >DbUp</a> after the build/deployment is complete. The DBUp upgrade happens in the
 form of running an executable generated during the build process.
 The default templates does not have any built-in option to run an arbitrary exe as part of the build process.</p>
-
-<p>While there are other paths to achieve this, I chose to do it through the VSO build itself for the sake of keeping the build/deployment process simple</p>
 
 <h3>Step 1 : Download the default build process template.</h3>
 
