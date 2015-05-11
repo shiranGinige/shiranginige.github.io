@@ -3,7 +3,7 @@ layout: post
 title: "Customising VSO build template to execute an arbitrary exe"
 date: 2015-05-09 10:37:41 +1000
 comments: true
-categories: ALM , VSO , BUILD , Continuous Integration
+categories: [ALM , VSO , BUILD , Continuous Integration]
 ---
 
 I had to work with VSO and Azure WebSites more than usual during the last few days. A bulk of it involved moving
