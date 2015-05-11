@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Deployment | Shiran Ginige]]></title>
+  <link href="http://shiranginige.github.io/blog/categories/deployment/atom.xml" rel="self"/>
+  <link href="http://shiranginige.github.io/"/>
+  <updated>2015-05-12T08:29:04+10:00</updated>
+  <id>http://shiranginige.github.io/</id>
+  <author>
+    <name><![CDATA[Shiran Ginige]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Using KUDU to Do CD Two Applications on the Same Azure WebSite]]></title>
+    <link href="http://shiranginige.github.io/blog/2015/05/11/using-kudu-to-deploy-two-applications-on-the-same-azure-website/"/>
+    <updated>2015-05-11T09:04:40+10:00</updated>
+    <id>http://shiranginige.github.io/blog/2015/05/11/using-kudu-to-deploy-two-applications-on-the-same-azure-website</id>
+    <content type="html"><![CDATA[<p><strong>Problem </strong> : I have two web projects in the same solution and they need to be deployed in the same AzureWeb site
+in two different virtual directories.
+(<a href='http://blogs.msdn.com/b/tomholl/archive/2014/09/22/deploying-multiple-virtual-directories-to-a-single-azure-website.aspx'>and yes it is possible in case you haven&rsquo;t noticed </a>)
+<a href='http://blog.amitapple.com/post/38419111245/azurewebsitecustomdeploymentpart3'>This post</a> explains well, how you
+could achieve this manually. The concern specifically addressed here is deploying both applications continuously.</p>
+
+<p>Below screen is a summary of my expected deployment structure.</p>
+
+<p><img class="left" src="/images/using-kudu-to-deploy-two-applications-on-the-same-azure-website/1.jpg"></p>
+
+<p>Taking a step back, there are basically two built-in ways do continuous deployments deployments on Azure Websites.</p>
+
+<pre><code>1. Use VSO Hosted Build Agent
+2. Use Kudu deployments
+</code></pre>
+
+<p><a href='https://github.com/projectkudu/kudu/wiki/VSO-vs-Kudu-deployments'>Dabid Ebbo explains the difference between the two here </a></p>
+
+<p>The biggest and the most important difference is , <u>Kudu can only be used to do deployments from your local box</u> while
+- to state the obvious - VSO build is coupled with your source repo in VSO.</p>
+
+<p>But why am I even bothered about kudu while VSO hosted build is free ( well, 60 mins per month ) and is completely isolated from
+the local dev box and have all the bells and whistles built in ( everyone loves XAML , right )?</p>
+
+<p>Well the limitation of VSO build comes when you want to automate the deployments to two virtual directories in the same
+website.</p>
+
+<p>At the moment ( May 2015 ) deploying two applications in virtual directories is not supported in in VSO builds.
+(<a href='source/_posts/2015-05-11-using-kudu-to-deploy-two-applications-on-the-same-azure-website.markdown:26'>you have to have two solutions for both applications instead</a> )</p>
+
+<p>Fortunately, there is <a href='https://github.com/projectkudu/kudu'>kudu</a>. The awesome engine behind git/hg deployment in Azure websites.</p>
+
+<p>Not only you can creation of deployment scripts is fairly straight-forward, they can be modified and tested  with ease
+( ha! , take that VSO build )</p>
+
+<p>I&rsquo;m listing the steps that were followed in achieving the first stated objective using kudu deployments.</p>
+
+<p>NOTE : You&rsquo;d first want to have <a href='http://azure.microsoft.com/en-in/documentation/articles/xplat-cli/'>Azure CLI tools</a> installed to run the following script.</p>
+
+<blockquote><p>Generate the kudu deployment script for Web Project</p></blockquote>
+
+<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>azure site deploymentscript &ndash;aspWAP VeryComplexApplication\VeryComplexApplication.Web\VeryComplexApplication.Web.csproj -s VeryComplexApplication.sln</span></code></pre></td></tr></table></div></figure></p>
+
+<blockquote><p>Rename the generated deployment script</p></blockquote>
+
+<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>move deploy.cmd VeryComplexApplication.Web.deploy.cmd</span></code></pre></td></tr></table></div></figure></p>
+
+<p>Then find the block with DEPLOYMENT_TARGET and change it as follows ( note the if condition is commented,
+because we want to override what is set by kudu by default)</p>
+
+<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>:: IF NOT DEFINED DEPLOYMENT_TARGET (
+</span><span class='line'>  SET DEPLOYMENT_TARGET=%ARTIFACTS%\website
+</span><span class='line'>:: )</span></code></pre></td></tr></table></div></figure></p>
+
+<blockquote><p>Generate the kudu deployment script for API Project</p></blockquote>
+
+<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>azure site deploymentscript &ndash;aspWAP VeryComplexApplication\VeryComplexApplication.API\VeryComplexApplication.API.csproj -s VeryComplexApplication.sln</span></code></pre></td></tr></table></div></figure></p>
+
+<p>Same as above, change the DEPLOYMENT_TARGET section as follows,</p>
+
+<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>:: IF NOT DEFINED DEPLOYMENT_TARGET (
+</span><span class='line'>  SET DEPLOYMENT_TARGET=%ARTIFACTS%\api
+</span><span class='line'>:: )</span></code></pre></td></tr></table></div></figure></p>
+
+<blockquote><p>Rename the generated deployment script</p></blockquote>
+
+<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>move deploy.cmd VeryComplexApplication.API.deploy.cmd</span></code></pre></td></tr></table></div></figure></p>
+
+<blockquote><p>Create a new deploy.cmd file and add the following code block
+ ( which will execute deployment scripts for web site and api separately )</p></blockquote>
+
+<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code>@echo off
+</span><span class='line'>
+</span><span class='line'>echo deploying the web site....
+</span><span class='line'>
+</span><span class='line'>call VeryComplexApplication.Web.deploy.cmd
+</span><span class='line'>
+</span><span class='line'>echo deploying the API ...
+</span><span class='line'>
+</span><span class='line'>call VeryComplexApplication.API.deploy.cmd
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p></span></code></pre></td></tr></table></div></figure></p>
+
+<blockquote><p>Configure Virtual applications in Azure</p></blockquote>
+
+<p>Log into Azure portal and on the respective website , go to configure tab and configure the virtual directories as
+seen in the above image.</p>
+
+<blockquote><p>Push the code to the Azure web site by using Local Git Repository option.</p></blockquote>
+
+<p>Commit the newly added *.deploy.cmd files at the root and push the code to Azure website using &lsquo;Local Git Repo&rsquo; option</p>
+
+<p><img class="left" src="/images/using-kudu-to-deploy-two-applications-on-the-same-azure-website/2.png"></p>
+]]></content>
+  </entry>
+  
+</feed>

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: , | Shiran Ginige]]></title>
-  <link href="http://shiranginige.github.io/blog/categories//atom.xml" rel="self"/>
+  <title><![CDATA[Category: Continuous Integration | Shiran Ginige]]></title>
+  <link href="http://shiranginige.github.io/blog/categories/continuous-integration/atom.xml" rel="self"/>
   <link href="http://shiranginige.github.io/"/>
-  <updated>2015-05-11T00:46:57+10:00</updated>
+  <updated>2015-05-12T08:29:04+10:00</updated>
   <id>http://shiranginige.github.io/</id>
   <author>
     <name><![CDATA[Shiran Ginige]]></name>
