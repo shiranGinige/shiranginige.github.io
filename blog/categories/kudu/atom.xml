@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Kudu | Shiran Ginige]]></title>
   <link href="http://shiranginige.github.io/blog/categories/kudu/atom.xml" rel="self"/>
   <link href="http://shiranginige.github.io/"/>
-  <updated>2015-05-12T08:32:08+10:00</updated>
+  <updated>2015-05-13T09:12:16+10:00</updated>
   <id>http://shiranginige.github.io/</id>
   <author>
     <name><![CDATA[Shiran Ginige]]></name>
@@ -135,9 +135,11 @@ seen in the above image.</p>
 
 <blockquote><p>Push the code to the Azure web site by using Local Git Repository option.</p></blockquote>
 
-<p>Commit the newly added *.deploy.cmd files at the root and push the code to Azure website using &lsquo;Local Git Repo&rsquo; option</p>
+<p>Commit the newly added *.deploy.cmd files at the root and push the code to Azure website using &lsquo;Local Git Repo&rsquo; option.</p>
 
 <p><img class="left" src="/images/using-kudu-to-deploy-two-applications-on-the-same-azure-website/2.png"></p>
+
+<p>Happy deployments !</p>
 ]]></content>
   </entry>
   
