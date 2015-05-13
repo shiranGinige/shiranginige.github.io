@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Azure | Shiran Ginige]]></title>
   <link href="http://shiranginige.github.io/blog/categories/azure/atom.xml" rel="self"/>
   <link href="http://shiranginige.github.io/"/>
-  <updated>2015-05-13T09:16:02+10:00</updated>
+  <updated>2015-05-13T13:08:54+10:00</updated>
   <id>http://shiranginige.github.io/</id>
   <author>
     <name><![CDATA[Shiran Ginige]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Using KUDU to CD Two Applications on the Same Azure WebSite]]></title>
+    <title type="html"><![CDATA[Continuous Deployment Two Applications to the Same Azure WebSite (Using Kudu)]]></title>
     <link href="http://shiranginige.github.io/blog/2015/05/11/using-kudu-to-deploy-two-applications-on-the-same-azure-website/"/>
     <updated>2015-05-11T09:04:40+10:00</updated>
     <id>http://shiranginige.github.io/blog/2015/05/11/using-kudu-to-deploy-two-applications-on-the-same-azure-website</id>
