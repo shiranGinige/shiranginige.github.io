@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>C# to Javascript : Objects - Shiran Ginige</title>
+  <title>Up and Running .NET on a MAC in 5 Mins - Shiran Ginige</title>
   <meta name="author" content="Shiran Ginige">
 
   
-  <meta name="description" content="The best thing about Javascript is it&rsquo;s inherently easy way to deal with objects. var order = {productCode:&quot;XYZ&quot; , quantity=3}; Done &hellip;">
+  <meta name="description" content="Installation Steps : $ brew tap aspnet/dnx $ brew update $ brew install dnvm $ source dnvm.sh $ dnvm upgrade -u If brew is returning an error copy &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://shiranginige.github.io/blog/2015/01/23/csharp-to-javascript-objects">
+  <link rel="canonical" href="http://shiranginige.github.io/blog/2015/05/19/get-net-up-and-running-on-a-mac-in-5-mins">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Shiran Ginige" type="application/atom+xml">
@@ -68,7 +68,7 @@
   
   <header>
     
-      <h1 class="entry-title">C# to Javascript : Objects</h1>
+      <h1 class="entry-title">Up and Running .NET on a MAC in 5 Mins</h1>
     
     
       <p class="meta">
@@ -77,46 +77,61 @@
 
 
 
-<time class='entry-date' datetime='2015-01-23T08:36:08+11:00'><span class='date'><span class='date-month'>Jan</span> <span class='date-day'>23</span><span class='date-suffix'>rd</span>, <span class='date-year'>2015</span></span> <span class='time'>8:36 am</span></time>
+<time class='entry-date' datetime='2015-05-19T08:24:28+10:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>19</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>8:24 am</span></time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>The best thing about Javascript is it&rsquo;s inherently easy way to deal with objects.</p>
+<div class="entry-content"><p><strong> Installation Steps </strong>  :</p>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">order</span> <span class="o">=</span> <span class="p">{</span><span class="nx">productCode</span><span class="o">:</span><span class="s2">&quot;XYZ&quot;</span> <span class="p">,</span> <span class="nx">quantity</span><span class="o">=</span><span class="mi">3</span><span class="p">};</span></code></pre></div>
-
-
-<p>Done. Here you have your order object! No need to define classes or nothing.</p>
-
-<p>How do you access the properties? There are two ways&hellip;</p>
-
-<pre><code>1. Dot notation , i.e =&gt; order.productCode;
-
-2. Subscript notation, i.e =&gt; order["productCode"];
+<pre><code>    $ brew tap aspnet/dnx
+    $ brew update
+    $ brew install dnvm
+    $ source dnvm.sh
+    $ dnvm upgrade -u
 </code></pre>
 
-<h3>Objects are more than that</h3>
+<p>If brew is returning an error copy and paste the below to install brew</p>
+
+<pre><code>    $ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+</code></pre>
+
+<p><strong> Testing time </strong> :
+        Type a simple hello world ( or copy and paste the below)</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>using System;
+</span><span class='line'>
+</span><span class='line'> public class HelloWorld
+</span><span class='line'> {
+</span><span class='line'>    public static void Main (string[] args)
+</span><span class='line'>     {
+</span><span class='line'>         Console.WriteLine ("Hello World!");
+</span><span class='line'>     }
+</span><span class='line'> }</span></code></pre></td></tr></table></div></figure>
 
 
-<p>In JavaScript, pretty much everything is an object. All primitive types ( String, Boolean, Number,etc) are objects</p>
+<p>Compile :</p>
 
-<p>You can even define a full-on object with methods , on the fly ( to hell with classes , eh?)</p>
+<pre><code>    $ dmcs HelloWorld.cs
+</code></pre>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">cart</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="nx">items</span><span class="o">:</span> <span class="p">[],</span>
-    <span class="nx">addItem</span> <span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">item</span><span class="p">){</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">items</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">item</span><span class="p">);</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">items</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">};</span>
+<p>Run :</p>
 
-<span class="nx">cart</span><span class="p">.</span><span class="nx">addItem</span><span class="p">({</span><span class="nx">Product</span><span class="o">:</span><span class="s1">&#39;QWER&#39;</span><span class="p">,</span><span class="nx">Quantity</span><span class="o">:</span><span class="mi">12</span><span class="p">});</span></code></pre></div>
+<pre><code>    $ dnx HelloWorld.exe
+</code></pre>
 
-
-<p>&ndash;TODO&ndash;</p>
+<p>Done!</p>
 </div>
 
 
@@ -132,12 +147,12 @@
 
 
 
-<time class='entry-date' datetime='2015-01-23T08:36:08+11:00'><span class='date'><span class='date-month'>Jan</span> <span class='date-day'>23</span><span class='date-suffix'>rd</span>, <span class='date-year'>2015</span></span> <span class='time'>8:36 am</span></time>
+<time class='entry-date' datetime='2015-05-19T08:24:28+10:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>19</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>8:24 am</span></time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/javascript-objects/'>javascript,objects</a>
+    <a class='category' href='/blog/categories/dot-net/'>.net</a>, <a class='category' href='/blog/categories/dnx/'>dnx</a>, <a class='category' href='/blog/categories/osx/'>osx</a>
   
 </span>
 
@@ -146,7 +161,7 @@
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://shiranginige.github.io/blog/2015/01/23/csharp-to-javascript-objects/" data-via="" data-counturl="http://shiranginige.github.io/blog/2015/01/23/csharp-to-javascript-objects/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://shiranginige.github.io/blog/2015/05/19/get-net-up-and-running-on-a-mac-in-5-mins/" data-via="" data-counturl="http://shiranginige.github.io/blog/2015/05/19/get-net-up-and-running-on-a-mac-in-5-mins/" >Tweet</a>
   
   
   
@@ -155,10 +170,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2015/01/21/csharp-to-javascript-classes/" title="Previous Post: C# to javascript : classes">&laquo; C# to javascript : classes</a>
+        <a class="basic-alignment left" href="/blog/2015/05/11/using-kudu-to-deploy-two-applications-on-the-same-azure-website/" title="Previous Post: Continuous Deployment of two applications to the same Azure WebSite (using kudu)">&laquo; Continuous Deployment of two applications to the same Azure WebSite (using kudu)</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2015/05/09/customising-vso-build-template-to-execute-an-exe/" title="Next Post: Customising VSO build template to execute an arbitrary exe">Customising VSO build template to execute an arbitrary exe &raquo;</a>
       
     </p>
   </footer>
@@ -224,8 +237,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://shiranginige.github.io/blog/2015/01/23/csharp-to-javascript-objects/';
-        var disqus_url = 'http://shiranginige.github.io/blog/2015/01/23/csharp-to-javascript-objects/';
+        var disqus_identifier = 'http://shiranginige.github.io/blog/2015/05/19/get-net-up-and-running-on-a-mac-in-5-mins/';
+        var disqus_url = 'http://shiranginige.github.io/blog/2015/05/19/get-net-up-and-running-on-a-mac-in-5-mins/';
         var disqus_script = 'embed.js';
       
     (function () {

@@ -9,9 +9,7 @@
   <meta name="author" content="Shiran Ginige">
 
   
-  <meta name="description" content="Problem : I have two web projects in the same solution and they need to be deployed in the same AzureWeb site
-in two different virtual directories.
-( &hellip;">
+  <meta name="description" content="Installation Steps : $ brew tap aspnet/dnx $ brew update $ brew install dnvm $ source dnvm.sh $ dnvm upgrade -u If brew is returning an error copy &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -67,6 +65,88 @@ in two different virtual directories.
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/05/19/get-net-up-and-running-on-a-mac-in-5-mins/">Up and Running .NET on a MAC in 5 Mins</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-05-19T08:24:28+10:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>19</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>8:24 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><strong> Installation Steps </strong>  :</p>
+
+<pre><code>    $ brew tap aspnet/dnx
+    $ brew update
+    $ brew install dnvm
+    $ source dnvm.sh
+    $ dnvm upgrade -u
+</code></pre>
+
+<p>If brew is returning an error copy and paste the below to install brew</p>
+
+<pre><code>    $ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+</code></pre>
+
+<p><strong> Testing time </strong> :
+        Type a simple hello world ( or copy and paste the below)</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>using System;
+</span><span class='line'>
+</span><span class='line'> public class HelloWorld
+</span><span class='line'> {
+</span><span class='line'>    public static void Main (string[] args)
+</span><span class='line'>     {
+</span><span class='line'>         Console.WriteLine ("Hello World!");
+</span><span class='line'>     }
+</span><span class='line'> }</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Compile :</p>
+
+<pre><code>    $ dmcs HelloWorld.cs
+</code></pre>
+
+<p>Run :</p>
+
+<pre><code>    $ dnx HelloWorld.exe
+</code></pre>
+
+<p>Done!</p>
+</div>
+  
+  
+
+
+
+
+    </article>
+  <br/>
+  <br/>
+  <br/>
+
   
   
     <article>
@@ -516,6 +596,10 @@ so instead of augmenting your new object, you will be clobbering global variable
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2015/05/19/get-net-up-and-running-on-a-mac-in-5-mins/">Up and Running .NET on a MAC in 5 Mins</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2015/05/11/using-kudu-to-deploy-two-applications-on-the-same-azure-website/">Continuous Deployment of Two Applications to the Same Azure WebSite (Using Kudu)</a>

@@ -4,7 +4,7 @@
   <title><![CDATA[Shiran Ginige]]></title>
   <link href="http://shiranginige.github.io/atom.xml" rel="self"/>
   <link href="http://shiranginige.github.io/"/>
-  <updated>2015-05-14T00:09:09+10:00</updated>
+  <updated>2015-05-21T09:05:51+10:00</updated>
   <id>http://shiranginige.github.io/</id>
   <author>
     <name><![CDATA[Shiran Ginige]]></name>
@@ -12,6 +12,62 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Up and Running .NET on a MAC in 5 Mins]]></title>
+    <link href="http://shiranginige.github.io/blog/2015/05/19/get-net-up-and-running-on-a-mac-in-5-mins/"/>
+    <updated>2015-05-19T08:24:28+10:00</updated>
+    <id>http://shiranginige.github.io/blog/2015/05/19/get-net-up-and-running-on-a-mac-in-5-mins</id>
+    <content type="html"><![CDATA[<p><strong> Installation Steps </strong>  :</p>
+
+<pre><code>    $ brew tap aspnet/dnx
+    $ brew update
+    $ brew install dnvm
+    $ source dnvm.sh
+    $ dnvm upgrade -u
+</code></pre>
+
+<p>If brew is returning an error copy and paste the below to install brew</p>
+
+<pre><code>    $ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+</code></pre>
+
+<p><strong> Testing time </strong> :
+        Type a simple hello world ( or copy and paste the below)</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>using System;
+</span><span class='line'>
+</span><span class='line'> public class HelloWorld
+</span><span class='line'> {
+</span><span class='line'>    public static void Main (string[] args)
+</span><span class='line'>     {
+</span><span class='line'>         Console.WriteLine ("Hello World!");
+</span><span class='line'>     }
+</span><span class='line'> }</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Compile :</p>
+
+<pre><code>    $ dmcs HelloWorld.cs
+</code></pre>
+
+<p>Run :</p>
+
+<pre><code>    $ dnx HelloWorld.exe
+</code></pre>
+
+<p>Done!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Continuous Deployment of Two Applications to the Same Azure WebSite (Using Kudu)]]></title>
