@@ -9,7 +9,8 @@
   <meta name="author" content="Shiran Ginige">
 
   
-  <meta name="description" content="Installation Steps : $ brew tap aspnet/dnx $ brew update $ brew install dnvm $ source dnvm.sh $ dnvm upgrade -u If brew is returning an error copy &hellip;">
+  <meta name="description" content="If you are already using TeamCity and wanna do CD to Azure websites without breaking a sweat. Well, here is a way. Download and install msdeploy
+on &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +66,81 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/06/19/continous-deployment-azure-website-using-teamcity-in-few-easy-steps/">Continous Deployment Azure Website Using TeamCity in Few Easy Steps</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-06-19T07:56:39+10:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>19</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>7:56 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>If you are already using TeamCity and wanna do CD to Azure websites without breaking a sweat. Well, here is a way.</p>
+
+<ol>
+<li>
+Download and install <a href='http://www.microsoft.com/en-au/download/details.aspx?id=39277' >msdeploy</a>
+on your build box
+</li>
+
+<li> Use chcolate to install <a href='https://chocolatey.org/packages/WAWSDeploy'>WAWSDeploy</a>
+ This is a nice wrapper around msdeploy to enable deployments using publish profiles.
+ </li>
+
+<li>Create a azure website </li>
+
+<li>Download the publishing profile </li>
+
+
+<img class="left" src="/images/2015-06-19-continous-deployment-azure-website-using-teamcity-in-few-easy-steps/azure-publishprofile.png">
+
+
+<li> use msbuild to package artifacts</li>
+
+<li> Use WAWSDeploy to do the deployment using artificts + publish profile </li>
+
+
+</ol>
+
+
+<p>Add the last two steps into a powershell script and use a TeamCity powershell step to execute it.</p>
+
+<p><img class="left" src="/images/2015-06-19-continous-deployment-azure-website-using-teamcity-in-few-easy-steps/teamcity-powershell.png"></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>msbuild  PeopleStreme.Web/PeopleStreme.Web.csproj /T:Package /P:Configuration=Release /P:OutputPath=..\Deployment\Artifacts\PackageWeb
+</span><span class='line'>
+</span><span class='line'> WAWSDeploy "Deployment\Artifacts\PackageWeb\_PublishedWebsites\PeopleStreme.Web" "Deployment/PublishProfiles/Dev/PeopleStreme.Web.PublishSettings" /v</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Andddd&hellip;. you&rsquo;re done!</p>
+</div>
+  
+  
+
+
+
+
+    </article>
+  <br/>
+  <br/>
+  <br/>
+
   
   
     <article>
@@ -598,6 +674,10 @@ so instead of augmenting your new object, you will be clobbering global variable
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2015/06/19/continous-deployment-azure-website-using-teamcity-in-few-easy-steps/">Continous Deployment Azure Website Using TeamCity in Few Easy Steps</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2015/05/19/get-net-up-and-running-on-a-mac-in-5-mins/">Up and Running .NET on a MAC in 5 Mins</a>
       </li>
     
@@ -611,10 +691,6 @@ so instead of augmenting your new object, you will be clobbering global variable
     
       <li class="post">
         <a href="/blog/2015/01/23/csharp-to-javascript-objects/">C# to Javascript : Objects</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/01/21/csharp-to-javascript-classes/">C# to Javascript : Classes</a>
       </li>
     
   </ul>

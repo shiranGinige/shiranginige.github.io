@@ -5,11 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>C# to Javascript : Objects - Shiran Ginige</title>
+  <title>Continous Deployment Azure Website Using TeamCity in Few Easy Steps - Shiran Ginige</title>
   <meta name="author" content="Shiran Ginige">
 
   
-  <meta name="description" content="The best thing about Javascript is it&rsquo;s inherently easy way to deal with objects. var order = {productCode:&quot;XYZ&quot; , quantity=3}; Done &hellip;">
+  <meta name="description" content="If you are already using TeamCity and wanna do CD to Azure websites without breaking a sweat. Well, here is a way. Download and install msdeploy
+on &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://shiranginige.github.io/blog/2015/01/23/csharp-to-javascript-objects">
+  <link rel="canonical" href="http://shiranginige.github.io/blog/2015/06/19/continous-deployment-azure-website-using-teamcity-in-few-easy-steps">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Shiran Ginige" type="application/atom+xml">
@@ -68,7 +69,7 @@
   
   <header>
     
-      <h1 class="entry-title">C# to Javascript : Objects</h1>
+      <h1 class="entry-title">Continous Deployment Azure Website Using TeamCity in Few Easy Steps</h1>
     
     
       <p class="meta">
@@ -77,46 +78,54 @@
 
 
 
-<time class='entry-date' datetime='2015-01-23T08:36:08+11:00'><span class='date'><span class='date-month'>Jan</span> <span class='date-day'>23</span><span class='date-suffix'>rd</span>, <span class='date-year'>2015</span></span> <span class='time'>8:36 am</span></time>
+<time class='entry-date' datetime='2015-06-19T07:56:39+10:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>19</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>7:56 am</span></time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>The best thing about Javascript is it&rsquo;s inherently easy way to deal with objects.</p>
+<div class="entry-content"><p>If you are already using TeamCity and wanna do CD to Azure websites without breaking a sweat. Well, here is a way.</p>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">order</span> <span class="o">=</span> <span class="p">{</span><span class="nx">productCode</span><span class="o">:</span><span class="s2">&quot;XYZ&quot;</span> <span class="p">,</span> <span class="nx">quantity</span><span class="o">=</span><span class="mi">3</span><span class="p">};</span></code></pre></div>
+<ol>
+<li>
+Download and install <a href='http://www.microsoft.com/en-au/download/details.aspx?id=39277' >msdeploy</a>
+on your build box
+</li>
 
+<li> Use chcolate to install <a href='https://chocolatey.org/packages/WAWSDeploy'>WAWSDeploy</a>
+ This is a nice wrapper around msdeploy to enable deployments using publish profiles.
+ </li>
 
-<p>Done. Here you have your order object! No need to define classes or nothing.</p>
+<li>Create a azure website </li>
 
-<p>How do you access the properties? There are two ways&hellip;</p>
-
-<pre><code>1. Dot notation , i.e =&gt; order.productCode;
-
-2. Subscript notation, i.e =&gt; order["productCode"];
-</code></pre>
-
-<h3>Objects are more than that</h3>
-
-
-<p>In JavaScript, pretty much everything is an object. All primitive types ( String, Boolean, Number,etc) are objects</p>
-
-<p>You can even define a full-on object with methods , on the fly ( to hell with classes , eh?)</p>
-
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">cart</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="nx">items</span><span class="o">:</span> <span class="p">[],</span>
-    <span class="nx">addItem</span> <span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">item</span><span class="p">){</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">items</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">item</span><span class="p">);</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">items</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">};</span>
-
-<span class="nx">cart</span><span class="p">.</span><span class="nx">addItem</span><span class="p">({</span><span class="nx">Product</span><span class="o">:</span><span class="s1">&#39;QWER&#39;</span><span class="p">,</span><span class="nx">Quantity</span><span class="o">:</span><span class="mi">12</span><span class="p">});</span></code></pre></div>
+<li>Download the publishing profile </li>
 
 
-<p>&ndash;TODO&ndash;</p>
+<img class="left" src="/images/2015-06-19-continous-deployment-azure-website-using-teamcity-in-few-easy-steps/azure-publishprofile.png">
+
+
+<li> use msbuild to package artifacts</li>
+
+<li> Use WAWSDeploy to do the deployment using artificts + publish profile </li>
+
+
+</ol>
+
+
+<p>Add the last two steps into a powershell script and use a TeamCity powershell step to execute it.</p>
+
+<p><img class="left" src="/images/2015-06-19-continous-deployment-azure-website-using-teamcity-in-few-easy-steps/teamcity-powershell.png"></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>msbuild  PeopleStreme.Web/PeopleStreme.Web.csproj /T:Package /P:Configuration=Release /P:OutputPath=..\Deployment\Artifacts\PackageWeb
+</span><span class='line'>
+</span><span class='line'> WAWSDeploy "Deployment\Artifacts\PackageWeb\_PublishedWebsites\PeopleStreme.Web" "Deployment/PublishProfiles/Dev/PeopleStreme.Web.PublishSettings" /v</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Andddd&hellip;. you&rsquo;re done!</p>
 </div>
 
 
@@ -132,12 +141,12 @@
 
 
 
-<time class='entry-date' datetime='2015-01-23T08:36:08+11:00'><span class='date'><span class='date-month'>Jan</span> <span class='date-day'>23</span><span class='date-suffix'>rd</span>, <span class='date-year'>2015</span></span> <span class='time'>8:36 am</span></time>
+<time class='entry-date' datetime='2015-06-19T07:56:39+10:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>19</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>7:56 am</span></time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/javascript-objects/'>javascript,objects</a>
+    <a class='category' href='/blog/categories/alm/'>alm</a>, <a class='category' href='/blog/categories/azure/'>azure</a>, <a class='category' href='/blog/categories/teamcity/'>teamcity</a>
   
 </span>
 
@@ -146,7 +155,7 @@
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://shiranginige.github.io/blog/2015/01/23/csharp-to-javascript-objects/" data-via="" data-counturl="http://shiranginige.github.io/blog/2015/01/23/csharp-to-javascript-objects/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://shiranginige.github.io/blog/2015/06/19/continous-deployment-azure-website-using-teamcity-in-few-easy-steps/" data-via="" data-counturl="http://shiranginige.github.io/blog/2015/06/19/continous-deployment-azure-website-using-teamcity-in-few-easy-steps/" >Tweet</a>
   
   
   
@@ -155,10 +164,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2015/01/21/csharp-to-javascript-classes/" title="Previous Post: C# to javascript : classes">&laquo; C# to javascript : classes</a>
+        <a class="basic-alignment left" href="/blog/2015/05/19/get-net-up-and-running-on-a-mac-in-5-mins/" title="Previous Post: Up and running .NET on a MAC in 5 mins">&laquo; Up and running .NET on a MAC in 5 mins</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2015/05/09/customising-vso-build-template-to-execute-an-exe/" title="Next Post: Customising VSO build template to execute an arbitrary exe">Customising VSO build template to execute an arbitrary exe &raquo;</a>
       
     </p>
   </footer>
@@ -224,8 +231,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://shiranginige.github.io/blog/2015/01/23/csharp-to-javascript-objects/';
-        var disqus_url = 'http://shiranginige.github.io/blog/2015/01/23/csharp-to-javascript-objects/';
+        var disqus_identifier = 'http://shiranginige.github.io/blog/2015/06/19/continous-deployment-azure-website-using-teamcity-in-few-easy-steps/';
+        var disqus_url = 'http://shiranginige.github.io/blog/2015/06/19/continous-deployment-azure-website-using-teamcity-in-few-easy-steps/';
         var disqus_script = 'embed.js';
       
     (function () {

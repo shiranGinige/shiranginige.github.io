@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Teamcity | Shiran Ginige]]></title>
+  <link href="http://shiranginige.github.io/blog/categories/teamcity/atom.xml" rel="self"/>
+  <link href="http://shiranginige.github.io/"/>
+  <updated>2015-06-19T19:48:21+10:00</updated>
+  <id>http://shiranginige.github.io/</id>
+  <author>
+    <name><![CDATA[Shiran Ginige]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Continous Deployment Azure Website Using TeamCity in Few Easy Steps]]></title>
+    <link href="http://shiranginige.github.io/blog/2015/06/19/continous-deployment-azure-website-using-teamcity-in-few-easy-steps/"/>
+    <updated>2015-06-19T07:56:39+10:00</updated>
+    <id>http://shiranginige.github.io/blog/2015/06/19/continous-deployment-azure-website-using-teamcity-in-few-easy-steps</id>
+    <content type="html"><![CDATA[<p>If you are already using TeamCity and wanna do CD to Azure websites without breaking a sweat. Well, here is a way.</p>
+
+<ol>
+<li>
+Download and install <a href='http://www.microsoft.com/en-au/download/details.aspx?id=39277' >msdeploy</a>
+on your build box
+</li>
+
+<li> Use chcolate to install <a href='https://chocolatey.org/packages/WAWSDeploy'>WAWSDeploy</a>
+ This is a nice wrapper around msdeploy to enable deployments using publish profiles.
+ </li>
+
+<li>Create a azure website </li>
+
+<li>Download the publishing profile </li>
+
+
+<img class="left" src="/images/2015-06-19-continous-deployment-azure-website-using-teamcity-in-few-easy-steps/azure-publishprofile.png">
+
+
+<li> use msbuild to package artifacts</li>
+
+<li> Use WAWSDeploy to do the deployment using artificts + publish profile </li>
+
+
+</ol>
+
+
+<p>Add the last two steps into a powershell script and use a TeamCity powershell step to execute it.</p>
+
+<p><img class="left" src="/images/2015-06-19-continous-deployment-azure-website-using-teamcity-in-few-easy-steps/teamcity-powershell.png"></p>
+
+<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;p> msbuild  PeopleStreme.Web/PeopleStreme.Web.csproj /T:Package /P:Configuration=Release /P:OutputPath=..\Deployment\Artifacts\PackageWeb&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;p> WAWSDeploy &ldquo;Deployment\Artifacts\PackageWeb_PublishedWebsites\PeopleStreme.Web&rdquo; &ldquo;Deployment/PublishProfiles/Dev/PeopleStreme.Web.PublishSettings&rdquo; /v&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;p></span></code></pre></td></tr></table></div></figure></p>
+
+<p>Andddd&hellip;. you&rsquo;re done!</p>
+]]></content>
+  </entry>
+  
+</feed>
