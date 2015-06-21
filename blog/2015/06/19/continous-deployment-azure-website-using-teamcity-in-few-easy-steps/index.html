@@ -120,9 +120,9 @@ on your build box
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>msbuild  PeopleStreme.Web/PeopleStreme.Web.csproj /T:Package /P:Configuration=Release /P:OutputPath=..\Deployment\Artifacts\PackageWeb
+</pre></td><td class='code'><pre><code class=''><span class='line'>msbuild  WebProject.csproj /T:Package /P:Configuration=Release /P:OutputPath=..\Deployment\Artifacts\PackageWeb
 </span><span class='line'>
-</span><span class='line'> WAWSDeploy "Deployment\Artifacts\PackageWeb\_PublishedWebsites\PeopleStreme.Web" "Deployment/PublishProfiles/Dev/PeopleStreme.Web.PublishSettings" /v</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'> WAWSDeploy "Deployment\Artifacts\PackageWeb\_PublishedWebsites\WebProject" "/WebProject.PublishSettings" /v</span></code></pre></td></tr></table></div></figure>
 
 
 <p>Andddd&hellip;. you&rsquo;re done!</p>

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Azure | Shiran Ginige]]></title>
   <link href="http://shiranginige.github.io/blog/categories/azure/atom.xml" rel="self"/>
   <link href="http://shiranginige.github.io/"/>
-  <updated>2015-06-19T19:48:21+10:00</updated>
+  <updated>2015-06-21T21:13:09+10:00</updated>
   <id>http://shiranginige.github.io/</id>
   <author>
     <name><![CDATA[Shiran Ginige]]></name>
@@ -59,9 +59,9 @@ on your build box
 <span class='line-number'>7</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>&lt;/p>
 </span><span class='line'>
-</span><span class='line'>&lt;p> msbuild  PeopleStreme.Web/PeopleStreme.Web.csproj /T:Package /P:Configuration=Release /P:OutputPath=..\Deployment\Artifacts\PackageWeb&lt;/p>
+</span><span class='line'>&lt;p> msbuild  WebProject.csproj /T:Package /P:Configuration=Release /P:OutputPath=..\Deployment\Artifacts\PackageWeb&lt;/p>
 </span><span class='line'>
-</span><span class='line'>&lt;p> WAWSDeploy &ldquo;Deployment\Artifacts\PackageWeb_PublishedWebsites\PeopleStreme.Web&rdquo; &ldquo;Deployment/PublishProfiles/Dev/PeopleStreme.Web.PublishSettings&rdquo; /v&lt;/p>
+</span><span class='line'>&lt;p> WAWSDeploy &ldquo;Deployment\Artifacts\PackageWeb_PublishedWebsites\WebProject&rdquo; &ldquo;/WebProject.PublishSettings&rdquo; /v&lt;/p>
 </span><span class='line'>
 </span><span class='line'>&lt;p></span></code></pre></td></tr></table></div></figure></p>
 

@@ -4,7 +4,7 @@
   <title><![CDATA[Shiran Ginige]]></title>
   <link href="http://shiranginige.github.io/atom.xml" rel="self"/>
   <link href="http://shiranginige.github.io/"/>
-  <updated>2015-06-19T19:48:21+10:00</updated>
+  <updated>2015-06-21T21:13:09+10:00</updated>
   <id>http://shiranginige.github.io/</id>
   <author>
     <name><![CDATA[Shiran Ginige]]></name>
@@ -53,9 +53,9 @@ on your build box
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>msbuild  PeopleStreme.Web/PeopleStreme.Web.csproj /T:Package /P:Configuration=Release /P:OutputPath=..\Deployment\Artifacts\PackageWeb
+</pre></td><td class='code'><pre><code class=''><span class='line'>msbuild  WebProject.csproj /T:Package /P:Configuration=Release /P:OutputPath=..\Deployment\Artifacts\PackageWeb
 </span><span class='line'>
-</span><span class='line'> WAWSDeploy "Deployment\Artifacts\PackageWeb\_PublishedWebsites\PeopleStreme.Web" "Deployment/PublishProfiles/Dev/PeopleStreme.Web.PublishSettings" /v</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'> WAWSDeploy "Deployment\Artifacts\PackageWeb\_PublishedWebsites\WebProject" "/WebProject.PublishSettings" /v</span></code></pre></td></tr></table></div></figure>
 
 
 <p>Andddd&hellip;. you&rsquo;re done!</p>
