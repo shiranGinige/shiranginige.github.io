@@ -120,9 +120,9 @@ on your build box
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>msbuild  WebProject.csproj /T:Package /P:Configuration=Release /P:OutputPath=..\Deployment\Artifacts\PackageWeb
+</pre></td><td class='code'><pre><code class=''><span class='line'>msbuild  PeopleStreme.Web/PeopleStreme.Web.csproj /T:Package /P:Configuration=Release /P:OutputPath=..\Deployment\Artifacts\PackageWeb
 </span><span class='line'>
-</span><span class='line'> WAWSDeploy "Deployment\Artifacts\PackageWeb\_PublishedWebsites\WebProject" "/WebProject.PublishSettings" /v</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'> WAWSDeploy "Deployment\Artifacts\PackageWeb\_PublishedWebsites\PeopleStreme.Web" "Deployment/PublishProfiles/Dev/PeopleStreme.Web.PublishSettings" /v</span></code></pre></td></tr></table></div></figure>
 
 
 <p>Andddd&hellip;. you&rsquo;re done!</p>
@@ -167,6 +167,8 @@ on your build box
         <a class="basic-alignment left" href="/blog/2015/05/19/get-net-up-and-running-on-a-mac-in-5-mins/" title="Previous Post: Up and running .NET on a MAC in 5 mins">&laquo; Up and running .NET on a MAC in 5 mins</a>
       
       
+        <a class="basic-alignment right" href="/blog/2015/11/19/using-es6-end-of-2015/" title="Next Post: Using ES6 in (the end of) 2015 ">Using ES6 in (the end of) 2015  &raquo;</a>
+      
     </p>
   </footer>
 </article>
@@ -186,6 +188,10 @@ on your build box
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2015/11/19/using-es6-end-of-2015/">Using ES6 in (the End of) 2015</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2015/06/19/continous-deployment-azure-website-using-teamcity-in-few-easy-steps/">Continous Deployment Azure Website Using TeamCity in Few Easy Steps</a>
       </li>
     
@@ -199,10 +205,6 @@ on your build box
     
       <li class="post">
         <a href="/blog/2015/05/09/customising-vso-build-template-to-execute-an-exe/">Customising VSO Build Template to Execute an Arbitrary Exe</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/01/23/csharp-to-javascript-objects/">C# to Javascript : Objects</a>
       </li>
     
   </ul>

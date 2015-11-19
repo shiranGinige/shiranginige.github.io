@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Javascript | Shiran Ginige]]></title>
+  <link href="http://shiranginige.github.io/blog/categories/javascript/atom.xml" rel="self"/>
+  <link href="http://shiranginige.github.io/"/>
+  <updated>2015-11-19T14:07:07+11:00</updated>
+  <id>http://shiranginige.github.io/</id>
+  <author>
+    <name><![CDATA[Shiran Ginige]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Using ES6 in (the End of) 2015]]></title>
+    <link href="http://shiranginige.github.io/blog/2015/11/19/using-es6-end-of-2015/"/>
+    <updated>2015-11-19T11:22:56+11:00</updated>
+    <id>http://shiranginige.github.io/blog/2015/11/19/using-es6-end-of-2015</id>
+    <content type="html"><![CDATA[<h1>Using a Transpiler</h1>
+
+<hr />
+
+<h2>Traceur</h2>
+
+<p>Traceur is a library developed at google to transpile es6 code to es5 compatible version. Here is how to use it.</p>
+
+<ul>
+<li>In a build environment</li>
+</ul>
+
+
+<p>Install traceur globally</p>
+
+<pre><code> $ npm install traceur -g
+</code></pre>
+
+<p>Execute traceur to transpile the es6 .js (all) files</p>
+
+<pre><code>   $ traceur --block-binding true --dir ./src ./out
+</code></pre>
+
+<p>To use inside a gulp task</p>
+
+<p>Install gulp-traceur</p>
+
+<pre><code> $ npm install gulp-traceur -g
+</code></pre>
+
+<p>Create a Gulp task</p>
+
+<pre><code>   var gulp = require('gulp');
+   var traceur = require('gulp-traceur');
+
+    gulp.task('traceur' , function(){
+        return gulp.src('source/**/*.js')
+                    .pipe(traceur({experimental:true , blockBinding:true}))
+                    .pipe(gulp.dest('out'));
+    })
+
+    gulp.task('default', function(){
+        gulp.run('traceur');
+    });
+</code></pre>
+
+<ul>
+<li>In the browser directly</li>
+</ul>
+
+
+<p><a href="http://plnkr.co/edit/XJeIU9bS9LxwA9cGftIV">Here</a> is a example plunker using traceur</p>
+
+<p>Note the below line to enable experimental features</p>
+
+<pre><code> &lt;script&gt;
+      traceur.options.experimental = true;
+ &lt;/script&gt;
+</code></pre>
+
+<h2>Babel</h2>
+
+<ul>
+<li>Install Babel</li>
+</ul>
+
+
+<pre><code>$ npm install babel -g
+</code></pre>
+
+<ul>
+<li>Transpile</li>
+</ul>
+
+
+<pre><code>$ babel ./src --out-dir ./out --source-maps
+</code></pre>
+
+<ul>
+<li>To concatenate
+<code>
+$ babel ./src --out-file ./out/all.js
+</code></li>
+</ul>
+
+
+<p>Typically you&rsquo;d use a Gulp task to transpile as we did before with Traceur</p>
+
+<h1>Using Polyfills</h1>
+
+<hr />
+
+<p>Using Polyfills are less disruptive than using a Transpiler but there is a caveat that not all features in ES6 are implemented in Polyfills. You simply have to find the Polyfill that implement a certain feature and include that in your project in order to use it.
+If there is no bower module for that, it could be a simple download and include in the project.</p>
+
+<p><a href="http://plnkr.co/edit/EGWny6A2OUIdMVT5fq1W?p=preview">This plunk</a> shows how to use new Array features in ES6 using es6-arrays polyfill</p>
+
+<h1>ES6 Shim</h1>
+
+<hr />
+
+<p>ES6 Shim is a collection of Polyfills that is easy to include in browser when you need to directly use ES6 features in the client</p>
+
+<p><a href="http://plnkr.co/edit/jm9GB4FOFDZfaxEeWaTq?p=preview">This Plunker</a> shows how to use a shim to use new Array and Promise features</p>
+
+<h1>Summary</h1>
+
+<p>You should be able to play with new ES6 features though the browser support is not yet available for all of the features.
+Transpilers, Polyfills and Shims are some the popular ways of achieving it and what to use is really depends on the situation.</p>
+]]></content>
+  </entry>
+  
+</feed>

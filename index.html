@@ -9,8 +9,7 @@
   <meta name="author" content="Shiran Ginige">
 
   
-  <meta name="description" content="If you are already using TeamCity and wanna do CD to Azure websites without breaking a sweat. Well, here is a way. Download and install msdeploy
-on &hellip;">
+  <meta name="description" content="Using a Transpiler Traceur Traceur is a library developed at google to transpile es6 code to es5 compatible version. Here is how to use it. In a &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -72,6 +71,170 @@ on &hellip;">
       
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2015/11/19/using-es6-end-of-2015/">Using ES6 in (the End of) 2015</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-11-19T11:22:56+11:00'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>19</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>11:22 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h1>Using a Transpiler</h1>
+
+<hr />
+
+<h2>Traceur</h2>
+
+<p>Traceur is a library developed at google to transpile es6 code to es5 compatible version. Here is how to use it.</p>
+
+<ul>
+<li>In a build environment</li>
+</ul>
+
+
+<p>Install traceur globally</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'> $ npm install traceur -g</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Execute traceur to transpile the es6 .js (all) files</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>   $ traceur --block-binding true --dir ./src ./out</span></code></pre></td></tr></table></div></figure>
+
+
+<p>To use inside a gulp task</p>
+
+<p>Install gulp-traceur</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'> $ npm install gulp-traceur -g</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Create a Gulp task</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>   var gulp = require('gulp');
+</span><span class='line'>   var traceur = require('gulp-traceur');
+</span><span class='line'>
+</span><span class='line'>    gulp.task('traceur' , function(){
+</span><span class='line'>        return gulp.src('source/**/*.js')
+</span><span class='line'>                    .pipe(traceur({experimental:true , blockBinding:true}))
+</span><span class='line'>                    .pipe(gulp.dest('out'));
+</span><span class='line'>    })
+</span><span class='line'>
+</span><span class='line'>    gulp.task('default', function(){
+</span><span class='line'>        gulp.run('traceur');
+</span><span class='line'>    });</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>In the browser directly</li>
+</ul>
+
+
+<p><a href="http://plnkr.co/edit/XJeIU9bS9LxwA9cGftIV">Here</a> is a example plunker using traceur</p>
+
+<p>Note the below line to enable experimental features</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'> &lt;script&gt;
+</span><span class='line'>      traceur.options.experimental = true;
+</span><span class='line'> &lt;/script&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Babel</h2>
+
+<ul>
+<li>Install Babel</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ npm install babel -g</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>Transpile</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ babel ./src --out-dir ./out --source-maps</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>To concatenate</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ babel ./src --out-file ./out/all.js</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Typically you&rsquo;d use a Gulp task to transpile as we did before with Traceur</p>
+
+<h1>Using Polyfills</h1>
+
+<hr />
+
+<p>Using Polyfills are less disruptive than using a Transpiler but there is a caveat that not all features in ES6 are implemented in Polyfills. You simply have to find the Polyfill that implement a certain feature and include that in your project in order to use it.
+If there is no bower module for that, it could be a simple download and include in the project.</p>
+
+<p><a href="http://plnkr.co/edit/EGWny6A2OUIdMVT5fq1W?p=preview">This plunk</a> shows how to use new Array features in ES6 using es6-arrays polyfill</p>
+
+<h1>ES6 Shim</h1>
+
+<hr />
+
+<p>ES6 Shim is a collection of Polyfills that is easy to include in browser when you need to directly use ES6 features in the client</p>
+
+<p><a href="http://plnkr.co/edit/jm9GB4FOFDZfaxEeWaTq?p=preview">This Plunker</a> shows how to use a shim to use new Array and Promise features</p>
+
+<h1>Summary</h1>
+
+<p>You should be able to play with new ES6 features though the browser support is not yet available for all of the features.
+Transpilers, Polyfills and Shims are some the popular ways of achieving it and what to use is really depends on the situation.</p>
+</div>
+  
+  
+
+
+
+
+    </article>
+  <br/>
+  <br/>
+  <br/>
+
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2015/06/19/continous-deployment-azure-website-using-teamcity-in-few-easy-steps/">Continous Deployment Azure Website Using TeamCity in Few Easy Steps</a></h1>
     
     
@@ -123,9 +286,9 @@ on your build box
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>msbuild  WebProject.csproj /T:Package /P:Configuration=Release /P:OutputPath=..\Deployment\Artifacts\PackageWeb
+</pre></td><td class='code'><pre><code class=''><span class='line'>msbuild  PeopleStreme.Web/PeopleStreme.Web.csproj /T:Package /P:Configuration=Release /P:OutputPath=..\Deployment\Artifacts\PackageWeb
 </span><span class='line'>
-</span><span class='line'> WAWSDeploy "Deployment\Artifacts\PackageWeb\_PublishedWebsites\WebProject" "/WebProject.PublishSettings" /v</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'> WAWSDeploy "Deployment\Artifacts\PackageWeb\_PublishedWebsites\PeopleStreme.Web" "Deployment/PublishProfiles/Dev/PeopleStreme.Web.PublishSettings" /v</span></code></pre></td></tr></table></div></figure>
 
 
 <p>Andddd&hellip;. you&rsquo;re done!</p>
@@ -674,6 +837,10 @@ so instead of augmenting your new object, you will be clobbering global variable
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2015/11/19/using-es6-end-of-2015/">Using ES6 in (the End of) 2015</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2015/06/19/continous-deployment-azure-website-using-teamcity-in-few-easy-steps/">Continous Deployment Azure Website Using TeamCity in Few Easy Steps</a>
       </li>
     
@@ -687,10 +854,6 @@ so instead of augmenting your new object, you will be clobbering global variable
     
       <li class="post">
         <a href="/blog/2015/05/09/customising-vso-build-template-to-execute-an-exe/">Customising VSO Build Template to Execute an Arbitrary Exe</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/01/23/csharp-to-javascript-objects/">C# to Javascript : Objects</a>
       </li>
     
   </ul>
