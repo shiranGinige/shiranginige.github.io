@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Using KUDU to CD two applications on the same Azure WebSite"
+title: "Continuous Deployment of two applications to the same Azure WebSite (using kudu)"
 date: 2015-05-11 09:04:40 +1000
 comments: true
 categories: [Azure , WebSites , Deployment , Kudu]
@@ -111,12 +111,12 @@ seen in the above image.
 
 > Push the code to the Azure web site by using Local Git Repository option.
 
-Commit the newly added *.deploy.cmd files at the root and push the code to Azure website using 'Local Git Repo' option
+Commit the newly added *.deploy.cmd files at the root and push the code to Azure website using 'Local Git Repo' option.
 
 {% img left /images/using-kudu-to-deploy-two-applications-on-the-same-azure-website/2.png %}
 
 
-
+Happy deployments !
 
 
 

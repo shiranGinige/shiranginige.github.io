@@ -31,6 +31,9 @@ email:
 root: /
 permalink: /blog/:year/:month/:day/:title/
 source: source
+
+
+
 destination: public
 plugins: plugins
 code_dir: downloads/code
@@ -60,6 +63,8 @@ default_asides: [asides/recent_posts.html, asides/github.html, asides/delicious.
 # blog_index_asides:
 # post_asides:
 # page_asides:
+
+
 
 # ----------------------- #
 #   3rd Party Settings    #
@@ -93,7 +98,7 @@ delicious_user:
 delicious_count: 3
 
 # Disqus Comments
-disqus_short_name:
+disqus_short_name: shiranginige
 disqus_show_comment_count: false
 
 # Google Analytics
@@ -101,3 +106,7 @@ google_analytics_tracking_id:
 
 # Facebook Like
 facebook_like: false
+
+front_page_categories: ['Draft'] # A list of categories for the front page
+front_page_categories_op : 'hide' # Whether to show or hide the list of categories from front_page_categories
+

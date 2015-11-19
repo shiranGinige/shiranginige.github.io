@@ -1,0 +1,117 @@
+---
+layout: post
+title: "Using ES6 in (the end of) 2015 "
+date: 2015-11-19 11:22:56 +1100
+comments: true
+categories: [ES6, Javascript,Traceur,Shim, Polyfill]
+---
+
+
+
+#Using a Transpiler
+====
+
+Traceur
+---
+
+Traceur is a library developed at google to transpile es6 code to es5 compatible version. Here is how to use it.
+
+* In a build environment
+
+Install traceur globally
+
+```
+ $ npm install traceur -g
+```
+
+Execute traceur to transpile the es6 .js (all) files
+
+```
+   $ traceur --block-binding true --dir ./src ./out
+```
+
+To use inside a gulp task
+
+Install gulp-traceur
+
+```
+ $ npm install gulp-traceur -g
+```
+
+Create a Gulp task
+
+```
+   var gulp = require('gulp');
+   var traceur = require('gulp-traceur');
+
+    gulp.task('traceur' , function(){
+        return gulp.src('source/**/*.js')
+                    .pipe(traceur({experimental:true , blockBinding:true}))
+                    .pipe(gulp.dest('out'));
+    })
+
+    gulp.task('default', function(){
+        gulp.run('traceur');
+    });
+```
+
+* In the browser directly
+
+[Here](http://plnkr.co/edit/XJeIU9bS9LxwA9cGftIV) is a example plunker using traceur
+
+Note the below line to enable experimental features
+
+```
+ <script>
+      traceur.options.experimental = true;
+ </script>
+```
+
+Babel
+---
+
+* Install Babel
+
+
+```
+$ npm install babel -g
+```
+
+* Transpile
+
+```
+$ babel ./src --out-dir ./out --source-maps
+```
+* To concatenate
+```
+$ babel ./src --out-file ./out/all.js
+```
+
+Typically you'd use a Gulp task to transpile as we did before with Traceur
+
+
+#Using Polyfills
+==========
+
+Using Polyfills are less disruptive than using a Transpiler but there is a caveat that not all features in ES6 are implemented in Polyfills. You simply have to find the Polyfill that implement a certain feature and include that in your project in order to use it.
+If there is no bower module for that, it could be a simple download and include in the project.
+
+
+[This plunk](http://plnkr.co/edit/EGWny6A2OUIdMVT5fq1W?p=preview) shows how to use new Array features in ES6 using es6-arrays polyfill
+
+
+#ES6 Shim
+========
+
+ES6 Shim is a collection of Polyfills that is easy to include in browser when you need to directly use ES6 features in the client
+
+[This Plunker](http://plnkr.co/edit/jm9GB4FOFDZfaxEeWaTq?p=preview) shows how to use a shim to use new Array and Promise features
+
+
+Summary
+========
+
+You should be able to play with new ES6 features though the browser support is not yet available for all of the features.
+Transpilers, Polyfills and Shims are some the popular ways of achieving it and what to use is really depends on the situation.
+
+
