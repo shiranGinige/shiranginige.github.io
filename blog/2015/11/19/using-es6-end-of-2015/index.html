@@ -5,11 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Using ES6 in (the End of) 2015 - Shiran Ginige</title>
+  <title>Using ES2015 in 2015 - Shiran Ginige</title>
   <meta name="author" content="Shiran Ginige">
 
   
-  <meta name="description" content="Using a Transpiler Traceur Traceur is a library developed at google to transpile es6 code to es5 compatible version. Here is how to use it. In a &hellip;">
+  <meta name="description" content="It is nearly 2016 and everyone&rsquo;s favorite language is getting a new look. ES2015 (a.k.a ES6) has been around some time
+but seems it would take &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -68,7 +69,7 @@
   
   <header>
     
-      <h1 class="entry-title">Using ES6 in (the End of) 2015</h1>
+      <h1 class="entry-title">Using ES2015 in 2015</h1>
     
     
       <p class="meta">
@@ -84,18 +85,19 @@
   </header>
 
 
-<div class="entry-content"><h1>Using a Transpiler</h1>
+<div class="entry-content"><p>It is nearly 2016 and everyone&rsquo;s favorite language is getting a new look. ES2015 (a.k.a ES6) has been around some time
+but seems it would take a little while until everyone ( browsers,backend engines like node) is on board with the new features. Luckily, we don&rsquo;t have to wait until someone confirms it it now good to go -  to stat using
+these features. There are quite a few options available already to use ES6 today and convert to ES5 compatible (transpile) versions.</p>
+
+<h1>Using a Transpiler</h1>
 
 <hr />
 
 <h2>Traceur</h2>
 
-<p>Traceur is a library developed at google to transpile es6 code to es5 compatible version. Here is how to use it.</p>
+<p><a href="https://github.com/google/traceur-compiler">Traceur</a> is a library developed at google to transpile ES6 code to ES5 compatible version. Here is how to use it.</p>
 
-<ul>
-<li>In a build environment</li>
-</ul>
-
+<h3>In a build environment</h3>
 
 <p>Install traceur globally</p>
 
@@ -109,7 +111,7 @@
 </pre></td><td class='code'><pre><code class=''><span class='line'>   $ traceur --block-binding true --dir ./src ./out</span></code></pre></td></tr></table></div></figure>
 
 
-<p>To use inside a gulp task</p>
+<h3>To use inside a gulp task</h3>
 
 <p>Install gulp-traceur</p>
 
@@ -145,10 +147,7 @@
 </span><span class='line'>    });</span></code></pre></td></tr></table></div></figure>
 
 
-<ul>
-<li>In the browser directly</li>
-</ul>
-
+<h3>In the browser directly</h3>
 
 <p><a href="http://plnkr.co/edit/XJeIU9bS9LxwA9cGftIV">Here</a> is a example plunker using traceur</p>
 
@@ -164,28 +163,21 @@
 
 <h2>Babel</h2>
 
-<ul>
-<li>Install Babel</li>
-</ul>
+<p>Unlike traceur, <a href="https://babeljs.io">Babel</a> supports only server side transpiling however as of November 2015 it seems to be the most popular choice.</p>
 
+<h3>Install Babel</h3>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>$ npm install babel -g</span></code></pre></td></tr></table></div></figure>
 
 
-<ul>
-<li>Transpile</li>
-</ul>
-
+<h3>Transpile</h3>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>$ babel ./src --out-dir ./out --source-maps</span></code></pre></td></tr></table></div></figure>
 
 
-<ul>
-<li>To concatenate</li>
-</ul>
-
+<h3>To concatenate</h3>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>$ babel ./src --out-file ./out/all.js</span></code></pre></td></tr></table></div></figure>
@@ -234,7 +226,7 @@ Transpilers, Polyfills and Shims are some the popular ways of achieving it and w
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/es6/'>es6</a>, <a class='category' href='/blog/categories/javascript/'>javascript</a>, <a class='category' href='/blog/categories/polyfill/'>polyfill</a>, <a class='category' href='/blog/categories/shim/'>shim</a>, <a class='category' href='/blog/categories/traceur/'>traceur</a>
+    <a class='category' href='/blog/categories/es2015/'>es2015</a>, <a class='category' href='/blog/categories/es6/'>es6</a>, <a class='category' href='/blog/categories/javascript/'>javascript</a>, <a class='category' href='/blog/categories/polyfill/'>polyfill</a>, <a class='category' href='/blog/categories/shim/'>shim</a>, <a class='category' href='/blog/categories/traceur/'>traceur</a>
   
 </span>
 
@@ -274,7 +266,7 @@ Transpilers, Polyfills and Shims are some the popular ways of achieving it and w
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/blog/2015/11/19/using-es6-end-of-2015/">Using ES6 in (the End of) 2015</a>
+        <a href="/blog/2015/11/19/using-es6-end-of-2015/">Using ES2015 in 2015</a>
       </li>
     
       <li class="post">
