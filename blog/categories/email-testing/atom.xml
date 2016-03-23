@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Email Testing | Shiran Ginige]]></title>
   <link href="http://shiranginige.github.io/blog/categories/email-testing/atom.xml" rel="self"/>
   <link href="http://shiranginige.github.io/"/>
-  <updated>2016-03-23T23:11:40+11:00</updated>
+  <updated>2016-03-23T23:17:04+11:00</updated>
   <id>http://shiranginige.github.io/</id>
   <author>
     <name><![CDATA[Shiran Ginige]]></name>
@@ -42,7 +42,7 @@
 </ul>
 
 
-<p> I created this NuGet package to make it easy for you.</p>
+<p> I created <a href='https://www.nuget.org/packages/Klabs.RouteEmailsToSlack'>this NuGet package</a> to make it easy. Source code is <a href='https://github.com/shiranGinige/RouteEmailsToSlack'>where it should be</a>.</p>
 
 <pre><code class="`PowerShell">
  &gt; Install-Package Klabs.RouteEmailsToSlack
@@ -79,7 +79,7 @@
 </span><span class='line'>
 </span><span class='line'>&lt;p></span></code></pre></td></tr></table></div></figure></p>
 
-<p>You should start seeing emails on your channel now</p>
+<p>You should start seeing emails in your slack channel now.</p>
 
 <p><img class="left" src="/images/2016-03-23-alternative-way-to-test-emails-in-dev-and-test/slack-email-channel.png"></p>
 
