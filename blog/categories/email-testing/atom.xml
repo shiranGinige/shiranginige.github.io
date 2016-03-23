@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Email Testing | Shiran Ginige]]></title>
   <link href="http://shiranginige.github.io/blog/categories/email-testing/atom.xml" rel="self"/>
   <link href="http://shiranginige.github.io/"/>
-  <updated>2016-03-23T22:53:12+11:00</updated>
+  <updated>2016-03-23T23:11:40+11:00</updated>
   <id>http://shiranginige.github.io/</id>
   <author>
     <name><![CDATA[Shiran Ginige]]></name>
@@ -14,11 +14,11 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Alternative Way to Test Emails in Dev and Test]]></title>
+    <title type="html"><![CDATA[An Alternative Way to Test Emails in Dev and Test]]></title>
     <link href="http://shiranginige.github.io/blog/2016/03/23/alternative-way-to-test-emails-in-dev-and-test/"/>
     <updated>2016-03-23T19:58:31+11:00</updated>
     <id>http://shiranginige.github.io/blog/2016/03/23/alternative-way-to-test-emails-in-dev-and-test</id>
-    <content type="html"><![CDATA[<p>I&rsquo;m working in a project which has about 40 different types of emails sent to various users in the system. The type of email would vary depending on the user role. For example an employee has a manager. When a certain action is performed, an email needs to be sent to both employee and manager. Sometimes there&rsquo;s an optional third party these emails could be copied to. To state is mildly, testing something like this is painful! So far the testers have been doing it the hard way : i.e create separate mail accounts and check them individually.</p>
+    <content type="html"><![CDATA[<p>I&rsquo;m working in a project which has about 40 different types of emails sent to various users in the system. The type of email would vary depending on the user role. For example an employee has a manager and when a certain action is performed, an email needs to be sent to both employee and manager. Sometimes there&rsquo;s an optional third party these emails could be copied to. Testing something like this is obviously painful! So far the testers have been doing it the hard way : i.e create separate mail accounts and check them individually.</p>
 
 <p>But what are the alternatives?</p>
 
