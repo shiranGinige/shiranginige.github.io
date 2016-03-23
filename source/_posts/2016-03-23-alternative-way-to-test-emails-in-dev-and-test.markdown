@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "Alternative way to test emails in Dev and Test"
+title: "An Alternative way to test emails in Dev and Test"
 date: 2016-03-23 19:58:31 +1100
 comments: true
-categories: [slack, email testing, dev]
+categories: [slack, email testing, dev,productivity]
 ---
 
-I'm working in a project which has about 40 different types of emails sent to various users in the system. The type of email would vary depending on the user role. For example an employee has a manager. When a certain action is performed, an email needs to be sent to both employee and manager. Sometimes there's an optional third party these emails could be copied to. To state is mildly, testing something like this is painful! So far the testers have been doing it the hard way : i.e create separate mail accounts and check them individually.
+I'm working in a project which has about 40 different types of emails sent to various users in the system. The type of email would vary depending on the user role. For example an employee has a manager and when a certain action is performed, an email needs to be sent to both employee and manager. Sometimes there's an optional third party these emails could be copied to. Testing something like this is obviously painful! So far the testers have been doing it the hard way : i.e create separate mail accounts and check them individually.
 
 But what are the alternatives?
 
@@ -31,7 +31,7 @@ But what are the alternatives?
 
  * Post the message to the web hook as per the documentation.
 
- I created this NuGet package to make it easy for you.
+ I created <a href='https://www.nuget.org/packages/Klabs.RouteEmailsToSlack'>this NuGet package</a> to make it easy. Source code is <a href='https://github.com/shiranGinige/RouteEmailsToSlack'>where it should be</a>.
 
  ```PowerShell
 
@@ -57,7 +57,7 @@ SendEmail(string receiverName ,string receiverEmail, string subject , string bod
 
 {% endcodeblock %}
 
-You should start seeing emails on your channel now
+You should start seeing emails in your slack channel now.
 
 {% img left /images/2016-03-23-alternative-way-to-test-emails-in-dev-and-test/slack-email-channel.png %}
 
@@ -68,6 +68,7 @@ Other benefits
 2. Save email credit. If you are using a hosted service like SendGrid or MailChimp, every email sent cost something. In SendGrid it is .025 cents. If you use this approach, it won't cost you anything. Nothing. None. Nada!
 
 3. Easy to use. You only have to check the channel. If you are already using slack, you know what I'm talking about. No in-boxes, no send-receive and all your application related emails for all test users will be in one place.
+
 
 
 
