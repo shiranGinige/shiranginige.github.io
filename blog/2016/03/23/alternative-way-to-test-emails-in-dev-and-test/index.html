@@ -132,7 +132,7 @@
 </span><span class='line'>{
 </span><span class='line'>    if(receiverEmail.EndsWith("test.com"))
 </span><span class='line'>    {
-</span><span class='line'>        var slackEmailRouter = new SlackEmailRouter("http://your.webhoook.url" , "#your-channel-name");
+</span><span class='line'>       var slackEmailRouter = new SlackEmailRouter("http://your.webhoook.url" , "#your-channel-name");
 </span><span class='line'>       await slackEmailRouter.SendAsync(receiverName,receiverEmail,subject,body);
 </span><span class='line'>     }
 </span><span class='line'>    else

@@ -4,7 +4,7 @@
   <title><![CDATA[Shiran Ginige]]></title>
   <link href="http://shiranginige.github.io/atom.xml" rel="self"/>
   <link href="http://shiranginige.github.io/"/>
-  <updated>2016-03-23T23:32:36+11:00</updated>
+  <updated>2016-03-23T23:33:10+11:00</updated>
   <id>http://shiranginige.github.io/</id>
   <author>
     <name><![CDATA[Shiran Ginige]]></name>
@@ -66,7 +66,7 @@
 </span><span class='line'>{
 </span><span class='line'>    if(receiverEmail.EndsWith("test.com"))
 </span><span class='line'>    {
-</span><span class='line'>        var slackEmailRouter = new SlackEmailRouter("http://your.webhoook.url" , "#your-channel-name");
+</span><span class='line'>       var slackEmailRouter = new SlackEmailRouter("http://your.webhoook.url" , "#your-channel-name");
 </span><span class='line'>       await slackEmailRouter.SendAsync(receiverName,receiverEmail,subject,body);
 </span><span class='line'>     }
 </span><span class='line'>    else
