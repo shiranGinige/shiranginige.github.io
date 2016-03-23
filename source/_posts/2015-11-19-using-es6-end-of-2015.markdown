@@ -1,22 +1,27 @@
 ---
 layout: post
-title: "Using ES6 in (the end of) 2015 "
+title: "Using ES2015 in 2015 "
 date: 2015-11-19 11:22:56 +1100
 comments: true
-categories: [ES6, Javascript,Traceur,Shim, Polyfill]
+categories: [ES6,ES2015,Javascript,Traceur,Shim,Polyfill]
 ---
 
+
+It is nearly 2016 and everyone's favorite language is getting a new look. ES2015 (a.k.a ES6) has been around some time
+but seems it would take a little while until everyone ( browsers,backend engines like node) is on board with the new features. Luckily, we don't have to wait until someone confirms it it now good to go -  to stat using
+these features. There are quite a few options available already to use ES6 today and convert to ES5 compatible (transpile) versions.
 
 
 #Using a Transpiler
 ====
 
+
 Traceur
 ---
 
-Traceur is a library developed at google to transpile es6 code to es5 compatible version. Here is how to use it.
+[Traceur](https://github.com/google/traceur-compiler) is a library developed at google to transpile ES6 code to ES5 compatible version. Here is how to use it.
 
-* In a build environment
+### In a build environment
 
 Install traceur globally
 
@@ -30,7 +35,7 @@ Execute traceur to transpile the es6 .js (all) files
    $ traceur --block-binding true --dir ./src ./out
 ```
 
-To use inside a gulp task
+### To use inside a gulp task
 
 Install gulp-traceur
 
@@ -55,7 +60,7 @@ Create a Gulp task
     });
 ```
 
-* In the browser directly
+### In the browser directly
 
 [Here](http://plnkr.co/edit/XJeIU9bS9LxwA9cGftIV) is a example plunker using traceur
 
@@ -70,19 +75,21 @@ Note the below line to enable experimental features
 Babel
 ---
 
-* Install Babel
+Unlike traceur, [Babel](https://babeljs.io) supports only server side transpiling however as of November 2015 it seems to be the most popular choice.
+
+### Install Babel
 
 
 ```
 $ npm install babel -g
 ```
 
-* Transpile
+### Transpile
 
 ```
 $ babel ./src --out-dir ./out --source-maps
 ```
-* To concatenate
+### To concatenate
 ```
 $ babel ./src --out-file ./out/all.js
 ```
