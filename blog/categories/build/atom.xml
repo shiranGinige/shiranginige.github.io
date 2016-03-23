@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Build | Shiran Ginige]]></title>
+  <title><![CDATA[Category: build | Shiran Ginige]]></title>
   <link href="http://shiranginige.github.io/blog/categories/build/atom.xml" rel="self"/>
   <link href="http://shiranginige.github.io/"/>
-  <updated>2016-03-23T23:23:26+11:00</updated>
+  <updated>2016-03-23T23:30:10+11:00</updated>
   <id>http://shiranginige.github.io/</id>
   <author>
     <name><![CDATA[Shiran Ginige]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Customising VSO Build Template to Execute an Arbitrary Exe]]></title>
+    <title type="html"><![CDATA[Customising VSO build template to execute an arbitrary exe]]></title>
     <link href="http://shiranginige.github.io/blog/2015/05/09/customising-vso-build-template-to-execute-an-exe/"/>
     <updated>2015-05-09T10:37:41+10:00</updated>
     <id>http://shiranginige.github.io/blog/2015/05/09/customising-vso-build-template-to-execute-an-exe</id>

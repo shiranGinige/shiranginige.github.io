@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Javascript,objects | Shiran Ginige]]></title>
+  <title><![CDATA[Category: javascript,objects | Shiran Ginige]]></title>
   <link href="http://shiranginige.github.io/blog/categories/javascript-objects/atom.xml" rel="self"/>
   <link href="http://shiranginige.github.io/"/>
-  <updated>2016-03-23T23:23:26+11:00</updated>
+  <updated>2016-03-23T23:30:10+11:00</updated>
   <id>http://shiranginige.github.io/</id>
   <author>
     <name><![CDATA[Shiran Ginige]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[C# to Javascript : Objects]]></title>
+    <title type="html"><![CDATA[C# to javascript : objects]]></title>
     <link href="http://shiranginige.github.io/blog/2015/01/23/csharp-to-javascript-objects/"/>
     <updated>2015-01-23T08:36:08+11:00</updated>
     <id>http://shiranginige.github.io/blog/2015/01/23/csharp-to-javascript-objects</id>

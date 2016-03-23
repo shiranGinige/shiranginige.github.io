@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Csharp,javascript,classes | Shiran Ginige]]></title>
+  <title><![CDATA[Category: csharp,javascript,classes | Shiran Ginige]]></title>
   <link href="http://shiranginige.github.io/blog/categories/csharp-javascript-classes/atom.xml" rel="self"/>
   <link href="http://shiranginige.github.io/"/>
-  <updated>2016-03-23T23:23:26+11:00</updated>
+  <updated>2016-03-23T23:30:10+11:00</updated>
   <id>http://shiranginige.github.io/</id>
   <author>
     <name><![CDATA[Shiran Ginige]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[C# to Javascript : Classes]]></title>
+    <title type="html"><![CDATA[C# to javascript : classes]]></title>
     <link href="http://shiranginige.github.io/blog/2015/01/21/csharp-to-javascript-classes/"/>
     <updated>2015-01-21T08:22:48+11:00</updated>
     <id>http://shiranginige.github.io/blog/2015/01/21/csharp-to-javascript-classes</id>

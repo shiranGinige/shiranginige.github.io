@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Kudu | Shiran Ginige]]></title>
+  <title><![CDATA[Category: kudu | Shiran Ginige]]></title>
   <link href="http://shiranginige.github.io/blog/categories/kudu/atom.xml" rel="self"/>
   <link href="http://shiranginige.github.io/"/>
-  <updated>2016-03-23T23:23:26+11:00</updated>
+  <updated>2016-03-23T23:30:10+11:00</updated>
   <id>http://shiranginige.github.io/</id>
   <author>
     <name><![CDATA[Shiran Ginige]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Continuous Deployment of Two Applications to the Same Azure WebSite (Using Kudu)]]></title>
+    <title type="html"><![CDATA[Continuous Deployment of two applications to the same Azure WebSite (using kudu)]]></title>
     <link href="http://shiranginige.github.io/blog/2015/05/11/using-kudu-to-deploy-two-applications-on-the-same-azure-website/"/>
     <updated>2015-05-11T09:04:40+10:00</updated>
     <id>http://shiranginige.github.io/blog/2015/05/11/using-kudu-to-deploy-two-applications-on-the-same-azure-website</id>

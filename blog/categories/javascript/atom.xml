@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Javascript | Shiran Ginige]]></title>
+  <title><![CDATA[Category: javascript | Shiran Ginige]]></title>
   <link href="http://shiranginige.github.io/blog/categories/javascript/atom.xml" rel="self"/>
   <link href="http://shiranginige.github.io/"/>
-  <updated>2016-03-23T23:23:26+11:00</updated>
+  <updated>2016-03-23T23:30:10+11:00</updated>
   <id>http://shiranginige.github.io/</id>
   <author>
     <name><![CDATA[Shiran Ginige]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Using ES2015 in 2015]]></title>
+    <title type="html"><![CDATA[Using ES2015 in 2015 ]]></title>
     <link href="http://shiranginige.github.io/blog/2015/11/19/using-es6-end-of-2015/"/>
     <updated>2015-11-19T11:22:56+11:00</updated>
     <id>http://shiranginige.github.io/blog/2015/11/19/using-es6-end-of-2015</id>

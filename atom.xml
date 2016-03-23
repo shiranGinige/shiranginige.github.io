@@ -4,7 +4,7 @@
   <title><![CDATA[Shiran Ginige]]></title>
   <link href="http://shiranginige.github.io/atom.xml" rel="self"/>
   <link href="http://shiranginige.github.io/"/>
-  <updated>2016-03-23T23:23:26+11:00</updated>
+  <updated>2016-03-23T23:30:10+11:00</updated>
   <id>http://shiranginige.github.io/</id>
   <author>
     <name><![CDATA[Shiran Ginige]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[An Alternative Way to Test Emails in Dev and Test]]></title>
+    <title type="html"><![CDATA[An alternative way to test emails in Dev and Test]]></title>
     <link href="http://shiranginige.github.io/blog/2016/03/23/alternative-way-to-test-emails-in-dev-and-test/"/>
     <updated>2016-03-23T19:58:31+11:00</updated>
     <id>http://shiranginige.github.io/blog/2016/03/23/alternative-way-to-test-emails-in-dev-and-test</id>
@@ -92,7 +92,7 @@
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Using ES2015 in 2015]]></title>
+    <title type="html"><![CDATA[Using ES2015 in 2015 ]]></title>
     <link href="http://shiranginige.github.io/blog/2015/11/19/using-es6-end-of-2015/"/>
     <updated>2015-11-19T11:22:56+11:00</updated>
     <id>http://shiranginige.github.io/blog/2015/11/19/using-es6-end-of-2015</id>
@@ -221,7 +221,7 @@ Transpilers, Polyfills and Shims are some the popular ways of achieving it and w
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Continous Deployment Azure Website Using TeamCity in Few Easy Steps]]></title>
+    <title type="html"><![CDATA[Continous Deployment Azure Website using TeamCity in few easy steps]]></title>
     <link href="http://shiranginige.github.io/blog/2015/06/19/continous-deployment-azure-website-using-teamcity-in-few-easy-steps/"/>
     <updated>2015-06-19T07:56:39+10:00</updated>
     <id>http://shiranginige.github.io/blog/2015/06/19/continous-deployment-azure-website-using-teamcity-in-few-easy-steps</id>
@@ -270,7 +270,7 @@ on your build box
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Up and Running .NET on a MAC in 5 Mins]]></title>
+    <title type="html"><![CDATA[Up and running .NET on a MAC in 5 mins]]></title>
     <link href="http://shiranginige.github.io/blog/2015/05/19/get-net-up-and-running-on-a-mac-in-5-mins/"/>
     <updated>2015-05-19T08:24:28+10:00</updated>
     <id>http://shiranginige.github.io/blog/2015/05/19/get-net-up-and-running-on-a-mac-in-5-mins</id>
@@ -326,7 +326,7 @@ on your build box
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Continuous Deployment of Two Applications to the Same Azure WebSite (Using Kudu)]]></title>
+    <title type="html"><![CDATA[Continuous Deployment of two applications to the same Azure WebSite (using kudu)]]></title>
     <link href="http://shiranginige.github.io/blog/2015/05/11/using-kudu-to-deploy-two-applications-on-the-same-azure-website/"/>
     <updated>2015-05-11T09:04:40+10:00</updated>
     <id>http://shiranginige.github.io/blog/2015/05/11/using-kudu-to-deploy-two-applications-on-the-same-azure-website</id>
@@ -453,7 +453,7 @@ seen in the above image.</p>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Customising VSO Build Template to Execute an Arbitrary Exe]]></title>
+    <title type="html"><![CDATA[Customising VSO build template to execute an arbitrary exe]]></title>
     <link href="http://shiranginige.github.io/blog/2015/05/09/customising-vso-build-template-to-execute-an-exe/"/>
     <updated>2015-05-09T10:37:41+10:00</updated>
     <id>http://shiranginige.github.io/blog/2015/05/09/customising-vso-build-template-to-execute-an-exe</id>
@@ -536,7 +536,7 @@ debug message from the InvokeProcess is present. Happy coding!</p>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[C# to Javascript : Objects]]></title>
+    <title type="html"><![CDATA[C# to javascript : objects]]></title>
     <link href="http://shiranginige.github.io/blog/2015/01/23/csharp-to-javascript-objects/"/>
     <updated>2015-01-23T08:36:08+11:00</updated>
     <id>http://shiranginige.github.io/blog/2015/01/23/csharp-to-javascript-objects</id>
@@ -577,7 +577,7 @@ debug message from the InvokeProcess is present. Happy coding!</p>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[C# to Javascript : Classes]]></title>
+    <title type="html"><![CDATA[C# to javascript : classes]]></title>
     <link href="http://shiranginige.github.io/blog/2015/01/21/csharp-to-javascript-classes/"/>
     <updated>2015-01-21T08:22:48+11:00</updated>
     <id>http://shiranginige.github.io/blog/2015/01/21/csharp-to-javascript-classes</id>

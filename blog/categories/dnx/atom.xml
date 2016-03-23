@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Dnx | Shiran Ginige]]></title>
+  <title><![CDATA[Category: dnx | Shiran Ginige]]></title>
   <link href="http://shiranginige.github.io/blog/categories/dnx/atom.xml" rel="self"/>
   <link href="http://shiranginige.github.io/"/>
-  <updated>2016-03-23T23:23:26+11:00</updated>
+  <updated>2016-03-23T23:30:10+11:00</updated>
   <id>http://shiranginige.github.io/</id>
   <author>
     <name><![CDATA[Shiran Ginige]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Up and Running .NET on a MAC in 5 Mins]]></title>
+    <title type="html"><![CDATA[Up and running .NET on a MAC in 5 mins]]></title>
     <link href="http://shiranginige.github.io/blog/2015/05/19/get-net-up-and-running-on-a-mac-in-5-mins/"/>
     <updated>2015-05-19T08:24:28+10:00</updated>
     <id>http://shiranginige.github.io/blog/2015/05/19/get-net-up-and-running-on-a-mac-in-5-mins</id>
