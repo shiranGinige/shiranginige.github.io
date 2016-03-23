@@ -4,7 +4,7 @@
   <title><![CDATA[Shiran Ginige]]></title>
   <link href="http://shiranginige.github.io/atom.xml" rel="self"/>
   <link href="http://shiranginige.github.io/"/>
-  <updated>2016-03-23T23:33:10+11:00</updated>
+  <updated>2016-03-23T23:36:26+11:00</updated>
   <id>http://shiranginige.github.io/</id>
   <author>
     <name><![CDATA[Shiran Ginige]]></name>
@@ -38,7 +38,7 @@
 
 <ul>
 <li><p>Create a slack channel and <a href='https://api.slack.com/incoming-webhooks'>configure a incoming web hook</a>.</p></li>
-<li><p>Post the message to the web hook as per the documentation.</p></li>
+<li><p>Post the message to the web hook.</p></li>
 </ul>
 
 
@@ -48,7 +48,10 @@
  &gt; Install-Package Klabs.RouteEmailsToSlack
 </code></pre>
 
-<p> Modify your SendEmail method slightly to look for the test domains and re-route those emails to slack.</p>
+<ul>
+<li>Modify your SendEmail method slightly to look for the test domains and re-route those emails to slack.</li>
+</ul>
+
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
