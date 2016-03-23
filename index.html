@@ -9,8 +9,7 @@
   <meta name="author" content="Shiran Ginige">
 
   
-  <meta name="description" content="It is nearly 2016 and everyone&rsquo;s favorite language is getting a new look. ES2015 (a.k.a ES6) has been around some time
-but seems it would take &hellip;">
+  <meta name="description" content="I&rsquo;m working in a project which has about 40 different types of emails sent to various users in the system. The type of email would vary &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -66,6 +65,110 @@ but seems it would take &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2016/03/23/alternative-way-to-test-emails-in-dev-and-test/">Alternative Way to Test Emails in Dev and Test</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2016-03-23T19:58:31+11:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>23</span><span class='date-suffix'>rd</span>, <span class='date-year'>2016</span></span> <span class='time'>7:58 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I&rsquo;m working in a project which has about 40 different types of emails sent to various users in the system. The type of email would vary depending on the user role. For example an employee has a manager. When a certain action is performed, an email needs to be sent to both employee and manager. Sometimes there&rsquo;s an optional third party these emails could be copied to. To state is mildly, testing something like this is painful! So far the testers have been doing it the hard way : i.e create separate mail accounts and check them individually.</p>
+
+<p>But what are the alternatives?</p>
+
+<p> <ul>
+ <li></p>
+
+<p>  Configure a <a href='https://support.microsoft.com/en-us/kb/230235'>SMTP relay</a>
+  </li></p>
+
+<p> <li>
+  If you want a quick and easy hosted solution, user something like <a href='https://mailtrap.io' >Mail Trap</a>
+  </li></p>
+
+<p><li>
+ Or, use Slack! Yes, you heard it right. Here is how&hellip;
+   </li></p>
+
+<ul>
+<li><p>Create a slack channel and <a href='https://api.slack.com/incoming-webhooks'>configure a incoming web hook</a>.</p></li>
+<li><p>Post the message to the web hook as per the documentation.</p></li>
+</ul>
+
+
+<p> I created this NuGet package to make it easy for you.</p>
+
+<pre><code class="`PowerShell">
+ &gt; Install-Package Klabs.RouteEmailsToSlack
+</code></pre>
+
+<p> Modify your SendEmail method slightly to look for the test domains and re-route those emails to slack.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>SendEmail(string receiverName ,string receiverEmail, string subject , string body )
+</span><span class='line'>{
+</span><span class='line'>    if(receiverEmail.EndsWith("test.com"))
+</span><span class='line'>    {
+</span><span class='line'>        var slackEmailRouter = new SlackEmailRouter("http://your.webhoook.url" , "#your-channel-name");
+</span><span class='line'>        slackEmailRouter.Send(receiverName,receiverEmail,subject,body);
+</span><span class='line'>     }
+</span><span class='line'>    else
+</span><span class='line'>    {
+</span><span class='line'>        //Your real SMTP logic here
+</span><span class='line'>    }
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You should start seeing emails on your channel now</p>
+
+<p><img class="left" src="/images/2016-03-23-alternative-way-to-test-emails-in-dev-and-test/slack-email-channel.png"></p>
+
+<p>Other benefits</p>
+
+<ol>
+<li><p>You don&rsquo;t have to make sure to configure your test users with a specific valid email address. As long as it is on the domains valid for testing ( in this case test.com) it would always be sent to the Slack channel.</p></li>
+<li><p>Save email credit. If you are using a hosted service like SendGrid or MailChimp, every email sent cost something. In SendGrid it is .025 cents. If you use this approach, it won&rsquo;t cost you anything. Nothing. None. Nada!</p></li>
+<li><p>Easy to use. You only have to check the channel. If you are already using slack, you know what I&rsquo;m talking about. No in-boxes, no send-receive and all your application related emails for all test users will be in one place.</p></li>
+</ol>
+
+</div>
+  
+  
+
+
+
+
+    </article>
+  <br/>
+  <br/>
+  <br/>
+
   
   
     <article>
@@ -829,6 +932,10 @@ so instead of augmenting your new object, you will be clobbering global variable
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2016/03/23/alternative-way-to-test-emails-in-dev-and-test/">Alternative Way to Test Emails in Dev and Test</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2015/11/19/using-es6-end-of-2015/">Using ES2015 in 2015</a>
       </li>
     
@@ -844,10 +951,6 @@ so instead of augmenting your new object, you will be clobbering global variable
         <a href="/blog/2015/05/11/using-kudu-to-deploy-two-applications-on-the-same-azure-website/">Continuous Deployment of Two Applications to the Same Azure WebSite (Using Kudu)</a>
       </li>
     
-      <li class="post">
-        <a href="/blog/2015/05/09/customising-vso-build-template-to-execute-an-exe/">Customising VSO Build Template to Execute an Arbitrary Exe</a>
-      </li>
-    
   </ul>
 </section>
 
@@ -861,7 +964,7 @@ so instead of augmenting your new object, you will be clobbering global variable
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2015 - Shiran Ginige -
+  Copyright &copy; 2016 - Shiran Ginige -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 

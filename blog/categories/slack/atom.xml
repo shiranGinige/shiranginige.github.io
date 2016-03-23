@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Slack | Shiran Ginige]]></title>
+  <link href="http://shiranginige.github.io/blog/categories/slack/atom.xml" rel="self"/>
+  <link href="http://shiranginige.github.io/"/>
+  <updated>2016-03-23T22:53:12+11:00</updated>
+  <id>http://shiranginige.github.io/</id>
+  <author>
+    <name><![CDATA[Shiran Ginige]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Alternative Way to Test Emails in Dev and Test]]></title>
+    <link href="http://shiranginige.github.io/blog/2016/03/23/alternative-way-to-test-emails-in-dev-and-test/"/>
+    <updated>2016-03-23T19:58:31+11:00</updated>
+    <id>http://shiranginige.github.io/blog/2016/03/23/alternative-way-to-test-emails-in-dev-and-test</id>
+    <content type="html"><![CDATA[<p>I&rsquo;m working in a project which has about 40 different types of emails sent to various users in the system. The type of email would vary depending on the user role. For example an employee has a manager. When a certain action is performed, an email needs to be sent to both employee and manager. Sometimes there&rsquo;s an optional third party these emails could be copied to. To state is mildly, testing something like this is painful! So far the testers have been doing it the hard way : i.e create separate mail accounts and check them individually.</p>
+
+<p>But what are the alternatives?</p>
+
+<p> <ul>
+ <li></p>
+
+<p>  Configure a <a href='https://support.microsoft.com/en-us/kb/230235'>SMTP relay</a>
+  </li></p>
+
+<p> <li>
+  If you want a quick and easy hosted solution, user something like <a href='https://mailtrap.io' >Mail Trap</a>
+  </li></p>
+
+<p><li>
+ Or, use Slack! Yes, you heard it right. Here is how&hellip;
+   </li></p>
+
+<ul>
+<li><p>Create a slack channel and <a href='https://api.slack.com/incoming-webhooks'>configure a incoming web hook</a>.</p></li>
+<li><p>Post the message to the web hook as per the documentation.</p></li>
+</ul>
+
+
+<p> I created this NuGet package to make it easy for you.</p>
+
+<pre><code class="`PowerShell">
+ &gt; Install-Package Klabs.RouteEmailsToSlack
+</code></pre>
+
+<p> Modify your SendEmail method slightly to look for the test domains and re-route those emails to slack.</p>
+
+<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>SendEmail(string receiverName ,string receiverEmail, string subject , string body )
+</span><span class='line'>{
+</span><span class='line'>    if(receiverEmail.EndsWith(&ldquo;test.com&rdquo;))
+</span><span class='line'>    {
+</span><span class='line'>        var slackEmailRouter = new SlackEmailRouter(&ldquo;&lt;a href="http://your.webhoook.url">http://your.webhoook.url&lt;/a>&rdquo; , &ldquo;#your-channel-name&rdquo;);
+</span><span class='line'>        slackEmailRouter.Send(receiverName,receiverEmail,subject,body);
+</span><span class='line'>     }
+</span><span class='line'>    else
+</span><span class='line'>    {
+</span><span class='line'>        //Your real SMTP logic here
+</span><span class='line'>    }
+</span><span class='line'>}&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;p></span></code></pre></td></tr></table></div></figure></p>
+
+<p>You should start seeing emails on your channel now</p>
+
+<p><img class="left" src="/images/2016-03-23-alternative-way-to-test-emails-in-dev-and-test/slack-email-channel.png"></p>
+
+<p>Other benefits</p>
+
+<ol>
+<li><p>You don&rsquo;t have to make sure to configure your test users with a specific valid email address. As long as it is on the domains valid for testing ( in this case test.com) it would always be sent to the Slack channel.</p></li>
+<li><p>Save email credit. If you are using a hosted service like SendGrid or MailChimp, every email sent cost something. In SendGrid it is .025 cents. If you use this approach, it won&rsquo;t cost you anything. Nothing. None. Nada!</p></li>
+<li><p>Easy to use. You only have to check the channel. If you are already using slack, you know what I&rsquo;m talking about. No in-boxes, no send-receive and all your application related emails for all test users will be in one place.</p></li>
+</ol>
+
+]]></content>
+  </entry>
+  
+</feed>
