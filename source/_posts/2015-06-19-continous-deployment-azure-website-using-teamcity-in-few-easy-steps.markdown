@@ -39,9 +39,9 @@ Add the last two steps into a powershell script and use a TeamCity powershell st
 {% codeblock %}
 
 
- msbuild  PeopleStreme.Web/PeopleStreme.Web.csproj /T:Package /P:Configuration=Release /P:OutputPath=..\Deployment\Artifacts\PackageWeb
+ msbuild  Web.csproj /T:Package /P:Configuration=Release /P:OutputPath=..\Deployment\Artifacts\PackageWeb
 
- WAWSDeploy "Deployment\Artifacts\PackageWeb\_PublishedWebsites\PeopleStreme.Web" "Deployment/PublishProfiles/Dev/PeopleStreme.Web.PublishSettings" /v
+ WAWSDeploy "Deployment\Artifacts\PackageWeb\_PublishedWebsites\Web" "Deployment/PublishProfiles/Dev/Web.PublishSettings" /v
 
 {% endcodeblock %}
 

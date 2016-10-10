@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "An Alternative way to test emails in Dev and Test"
+title: "An alternative way to test emails in Dev and Test"
 date: 2016-03-23 19:58:31 +1100
 comments: true
 categories: [slack, email testing, dev,productivity]
@@ -29,7 +29,7 @@ But what are the alternatives?
 
  * Create a slack channel and <a href='https://api.slack.com/incoming-webhooks'>configure a incoming web hook</a>.
 
- * Post the message to the web hook as per the documentation.
+ * Post the message to the web hook.
 
  I created <a href='https://www.nuget.org/packages/Klabs.RouteEmailsToSlack'>this NuGet package</a> to make it easy. Source code is <a href='https://github.com/shiranGinige/RouteEmailsToSlack'>where it should be</a>.
 
@@ -39,15 +39,15 @@ But what are the alternatives?
 
  ```
 
- Modify your SendEmail method slightly to look for the test domains and re-route those emails to slack.
+ * Modify your SendEmail method slightly to look for the test domains and re-route those emails to slack.
 
 {% codeblock %}
 SendEmail(string receiverName ,string receiverEmail, string subject , string body )
 {
     if(receiverEmail.EndsWith("test.com"))
     {
-        var slackEmailRouter = new SlackEmailRouter("http://your.webhoook.url" , "#your-channel-name");
-        slackEmailRouter.Send(receiverName,receiverEmail,subject,body);
+       var slackEmailRouter = new SlackEmailRouter("http://your.webhoook.url" , "#your-channel-name");
+       await slackEmailRouter.SendAsync(receiverName,receiverEmail,subject,body);
      }
     else
     {
