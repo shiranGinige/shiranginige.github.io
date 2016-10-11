@@ -5,12 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Continous Deployment Azure Website using TeamCity in few easy steps - Shiran Ginige</title>
+  <title>PC is alive and well - Shiran Ginige</title>
   <meta name="author" content="Shiran Ginige">
 
   
-  <meta name="description" content="If you are already using TeamCity and wanna do CD to Azure websites without breaking a sweat. Well, here is a way. Download and install msdeploy
-on &hellip;">
+  <meta name="description" content="It&rsquo;s been 8 years since I last used a PC and 3 months ago I would have never thought I&rsquo;d be doing this. But here I am, building a PC
+from &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +19,7 @@ on &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://shiranginige.github.io/blog/2015/06/19/continous-deployment-azure-website-using-teamcity-in-few-easy-steps">
+  <link rel="canonical" href="http://shiranginige.github.io/blog/2016/10/11/pc-is-alive-and-well">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Shiran Ginige" type="application/atom+xml">
@@ -69,7 +69,7 @@ on &hellip;">
   
   <header>
     
-      <h1 class="entry-title">Continous Deployment Azure Website using TeamCity in few easy steps</h1>
+      <h1 class="entry-title">PC is alive and well</h1>
     
     
       <p class="meta">
@@ -78,54 +78,49 @@ on &hellip;">
 
 
 
-<time class='entry-date' datetime='2015-06-19T07:56:39+10:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>19</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>7:56 am</span></time>
+<time class='entry-date' datetime='2016-10-11T06:23:40+11:00'><span class='date'><span class='date-month'>Oct</span> <span class='date-day'>11</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>6:23 am</span></time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>If you are already using TeamCity and wanna do CD to Azure websites without breaking a sweat. Well, here is a way.</p>
+<div class="entry-content"><p>It&rsquo;s been 8 years since I last used a PC and 3 months ago I would have never thought I&rsquo;d be doing this. But here I am, building a PC
+from scratch, part by part , just like in the old days - except things are much more expensive and fancier!</p>
 
-<ol>
-<li>
-Download and install <a href='http://www.microsoft.com/en-au/download/details.aspx?id=39277' >msdeploy</a>
-on your build box
-</li>
+<p>Reason ?</p>
 
-<li> Use chcolate to install <a href='https://chocolatey.org/packages/WAWSDeploy'>WAWSDeploy</a>
- This is a nice wrapper around msdeploy to enable deployments using publish profiles.
- </li>
+<p><img class="center" src="/images/2016-10-11-pc-is-alive-and-well/vr-doggy.gif"></p>
 
-<li>Create a azure website </li>
+<p><br/></p>
 
-<li>Download the publishing profile </li>
+<p>Ingredients ?</p>
 
+<p>Casing  ($129 ) <a href="https://www.pccasegear.com/products/33468/be-quiet-silent-base-600-case-with-window-orange" target="_blank">Be Quiet Silent Base 600</a></p>
 
-<img class="left" src="/images/2015-06-19-continous-deployment-azure-website-using-teamcity-in-few-easy-steps/azure-publishprofile.png">
+<p>Board ($369) <a href="https://www.pccasegear.com/products/32833/msi-z170a-gaming-m7-motherboard/" target="_blank">MSI Z170A-Gaming M7 </a></p>
 
+<p>CPU ($289) <a href="https://www.pccasegear.com/products/33192/intel-core-i5-6500/" target="_blank">Intel Core i5 6500</a></p>
 
-<li> use msbuild to package artifacts</li>
+<p>SSD ($229) <a href="https://www.pccasegear.com/products/33632/samsung-950-pro-256gb-m-2-ssd/" target="_blank">Samsung 950 Pro 256GB</a></p>
 
-<li> Use WAWSDeploy to do the deployment using artificts + publish profile </li>
+<p>HDD ($109) <a href="https://www.pccasegear.com/products/36686/seagate-barracuda-2tb-st2000dm006/">Seagate Barracuda 2TB</a></p>
 
+<p>VGA ($769)  <a href="https://www.pccasegear.com/products/35760/gigabyte-geforce-gtx-1070-g1-gaming-8gb">Gigabyte GeForce GTX 1070 G1</a></p>
 
-</ol>
+<p>Cooler ($55) <a href="https://www.pccasegear.com/products/22829/coolermaster-hyper-212x-cpu-cooler/">CoolerMaster Hyper 212X</a></p>
 
+<p>Memory($115) <a href="https://www.pccasegear.com/products/35066/kingston-hyperx-fury-hx424c15fb2k2/16-16gb-2x8gb-ddr4-black/">Kingston HyperX Fury HX424C15FB2K2/16 16GB </a></p>
 
-<p>Add the last two steps into a powershell script and use a TeamCity powershell step to execute it.</p>
+<p>Total : $2064 ( VGA sucked most of it - but sure was worth ;) !)</p>
 
-<p><img class="left" src="/images/2015-06-19-continous-deployment-azure-website-using-teamcity-in-few-easy-steps/teamcity-powershell.png"></p>
+<p><img class="center" src="/images/2016-10-11-pc-is-alive-and-well/ingredients.jpg"></p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>msbuild  Web.csproj /T:Package /P:Configuration=Release /P:OutputPath=..\Deployment\Artifacts\PackageWeb
-</span><span class='line'>
-</span><span class='line'> WAWSDeploy "Deployment\Artifacts\PackageWeb\_PublishedWebsites\Web" "Deployment/PublishProfiles/Dev/Web.PublishSettings" /v</span></code></pre></td></tr></table></div></figure>
+<p>Result ?</p>
 
+<p><img class="center" src="/images/2016-10-11-pc-is-alive-and-well/result.jpg"></p>
 
-<p>Andddd&hellip;. you&rsquo;re done!</p>
+<p>( Disclaimer : This is not an endorsement for PCCaseGear. I happen to use them for convenience. )</p>
 </div>
 
 
@@ -141,12 +136,12 @@ on your build box
 
 
 
-<time class='entry-date' datetime='2015-06-19T07:56:39+10:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>19</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>7:56 am</span></time>
+<time class='entry-date' datetime='2016-10-11T06:23:40+11:00'><span class='date'><span class='date-month'>Oct</span> <span class='date-day'>11</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>6:23 am</span></time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/alm/'>alm</a>, <a class='category' href='/blog/categories/azure/'>azure</a>, <a class='category' href='/blog/categories/teamcity/'>teamcity</a>
+    <a class='category' href='/blog/categories/pc/'>pc</a>, <a class='category' href='/blog/categories/vr/'>vr</a>
   
 </span>
 
@@ -155,7 +150,7 @@ on your build box
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://shiranginige.github.io/blog/2015/06/19/continous-deployment-azure-website-using-teamcity-in-few-easy-steps/" data-via="" data-counturl="http://shiranginige.github.io/blog/2015/06/19/continous-deployment-azure-website-using-teamcity-in-few-easy-steps/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://shiranginige.github.io/blog/2016/10/11/pc-is-alive-and-well/" data-via="" data-counturl="http://shiranginige.github.io/blog/2016/10/11/pc-is-alive-and-well/" >Tweet</a>
   
   
   
@@ -164,10 +159,8 @@ on your build box
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2015/05/19/get-net-up-and-running-on-a-mac-in-5-mins/" title="Previous Post: Up and running .NET on a MAC in 5 mins">&laquo; Up and running .NET on a MAC in 5 mins</a>
+        <a class="basic-alignment left" href="/blog/2016/03/23/alternative-way-to-test-emails-in-dev-and-test/" title="Previous Post: An alternative way to test emails in Dev and Test">&laquo; An alternative way to test emails in Dev and Test</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2015/11/19/using-es6-end-of-2015/" title="Next Post: Using ES2015 in 2015 ">Using ES2015 in 2015  &raquo;</a>
       
     </p>
   </footer>
@@ -233,8 +226,8 @@ on your build box
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://shiranginige.github.io/blog/2015/06/19/continous-deployment-azure-website-using-teamcity-in-few-easy-steps/';
-        var disqus_url = 'http://shiranginige.github.io/blog/2015/06/19/continous-deployment-azure-website-using-teamcity-in-few-easy-steps/';
+        var disqus_identifier = 'http://shiranginige.github.io/blog/2016/10/11/pc-is-alive-and-well/';
+        var disqus_url = 'http://shiranginige.github.io/blog/2016/10/11/pc-is-alive-and-well/';
         var disqus_script = 'embed.js';
       
     (function () {
